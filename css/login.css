@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: #FFFFFF;
+    border: none;
+    outline: none;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.fundo-login{
+    position: fixed;
+    inset: 0;
+    background-color: rgba(11, 11, 11, 0.7);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.login{
+    width: 450px;
+    height: 550px;
+    background-color: rgba(11, 11, 11, 0.2);
+    border-radius: 30px;
+    border: 1px solid #8a8a8a;
+}
+
+.Bem-vindo{
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    margin-top: 3px;
+}
+
+
+.logo-login{
+    width: 150px;
+    height: 150px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 5px;
+}
+
+.Email{
+    display: flex;
+    flex-direction: column;
+    margin: 25px 75px 0px;
+}
+
+.Email label{
+    font-size: 16px;
+}
+
+.Email input{
+    width: 300px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: rgba(138, 138, 138, 0.1);
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.Email input:focus{
+    border: 1px solid #8a8a8a;
+}
+
+.Email input::placeholder{
+    font-size: 16px;
+}
+
+.Senha{
+    display: flex;
+    flex-direction: column;
+    margin: 20px 75px 0px;
+}
+
+.Senha label{
+    font-size: 16px;
+}
+
+.Senha input{
+    width: 300px;
+    height: 45px;
+    border-radius: 10px;
+    background-color: rgba(138, 138, 138, 0.1);
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.Senha input:focus{
+    border: 1px solid #8a8a8a;
+}
+
+.Senha input::placeholder{
+    font-size: 16px;
+}
+
+.Entrar-Button{
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+    margin-left: 40px;
+    font-size: 18px;
+    margin-top: 44px;
+    background-color: rgba(22, 22, 22, 0.6);
+    width: 370px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+.Entrar-Button:hover{
+    background-color: rgba(225, 6, 0, 0.5);
+}
+
+.Senha-Esq{
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+    color: #e10600;
+}
+
+.Senha-Esq:hover{
+    color: rgba(225, 6, 0, 0.7);
+}
+
+.Nao-tem-uma-conta{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.Nao-tem-uma-conta a{
+    color: #e10600;
+}
+
+.Nao-tem-uma-conta a:hover{
+    color: rgba(225, 6, 0, 0.7);
+}

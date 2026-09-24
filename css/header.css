@@ -1,0 +1,103 @@
+header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 60px;
+}
+.header-divider {
+    height: 1.6px;
+    width: calc(100% - 120px);
+    margin: 0 auto;
+    background-color: #e10600;
+    border-radius: 999px;
+}
+
+.logo-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hashi-header {
+    width: 82px;
+    height: 69px;
+}
+
+
+.hashi-header-logo {
+    width: 88px;
+    height: 25px;
+    align-self: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 86px;
+}
+
+.nav-links a {
+    font-size: 18px;
+    padding-bottom: 6px;
+}
+
+.inicio {
+    color: #e10600;
+    border-bottom: 2px solid #e10600;
+}
+
+.cardapios:hover,
+.promocoes:hover,
+.ajuda:hover,
+.entregador:hover {
+    color: #e10600;
+    border-bottom: 2px solid #e10600;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.lupa {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+
+
+.conta-buttom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 24px;
+    height: 46px;
+    border: 0.5px solid #FFFFFF;
+    border-radius: 18px;
+    font-size: 16px;
+    transition: background-color 0.15s ease;
+}
+
+.conta-buttom:hover {
+    background-color: #161616;
+}
+
+.conta-icon {
+    width: 30px;
+    height: 30px;
+    color: #FFFFFF; 
+}
+
+
+.cart-icon-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.cart-icon {
+    width: 30px;
+    height: 30px;
+}
