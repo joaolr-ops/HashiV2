@@ -1,0 +1,560 @@
+@font-face {
+    font-family: "Montserrat Cardápio";
+    src: url("../Font/Montserrat/Montserrat-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
+
+.pagina-cardapio .nav-links [aria-current="page"] {
+    color: var(--hashi-vermelho);
+    border-bottom: 2px solid var(--hashi-vermelho);
+}
+
+.menu-pagina {
+    width: min(1560px, 100%);
+    padding: clamp(24px, 3.5vw, 52px) clamp(18px, 4.8vw, 66px) 72px;
+    margin: auto;
+    font-family: "Open Sans", Arial, sans-serif;
+}
+
+/* ===== CARROSSEL ===== */
+.menu-banner {
+    --banner-recuo: clamp(22px, 4.2vw, 64px);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid var(--hashi-contorno-forte);
+    border-radius: 17px;
+    background:
+        linear-gradient(90deg, color-mix(in srgb, var(--hashi-fundo) 95%, transparent), color-mix(in srgb, var(--hashi-superficie-quente) 70%, transparent)),
+        url("../Img-pagina-inicial/Fundo-Textura.jpg") center / 400px;
+}
+
+.menu-banner::before {
+    position: absolute;
+    z-index: -1;
+    inset: auto 0 0;
+    height: clamp(65px, 9vw, 126px);
+    background:
+        repeating-radial-gradient(ellipse 46px 35px at 50% 100%,
+            transparent 0 7px, var(--hashi-contorno-vermelho) 8px 10px, transparent 11px 14px)
+            0 0 / 92px 44px repeat,
+        repeating-radial-gradient(ellipse 46px 35px at 50% 100%,
+            transparent 0 7px, var(--hashi-contorno-vermelho) 8px 10px, transparent 11px 14px)
+            46px 22px / 92px 44px repeat;
+    mask-image: linear-gradient(transparent, #000 80%);
+    opacity: .58;
+    pointer-events: none;
+    content: "";
+}
+
+.menu-banner-slides {
+    display: grid;
+}
+
+.menu-banner-slide {
+    grid-area: 1 / 1;
+    display: grid;
+    grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+    align-items: center;
+    gap: 12px;
+    min-height: clamp(225px, 22vw, 335px);
+    padding: 16px 16px 38px var(--banner-recuo);
+}
+
+.menu-banner-slide :is(h1, h2),
+.menu-vitrine h2 {
+    font-family: "Montserrat Cardápio", Arial, sans-serif;
+    font-size: clamp(25px, 3vw, 38px);
+    line-height: 1.12;
+}
+
+.menu-banner-slide :is(h1, h2) {
+    color: var(--hashi-texto);
+    font-size: clamp(30px, 5.1vw, 78px);
+    letter-spacing: -.055em;
+    line-height: 1.02;
+}
+
+.menu-banner-descricao {
+    max-width: 36ch;
+    margin-top: 8px;
+    color: var(--hashi-texto);
+    font-size: clamp(14px, 1.85vw, 24px);
+    line-height: 1.35;
+}
+
+.menu-banner-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    min-height: clamp(38px, 3.8vw, 52px);
+    margin-top: clamp(14px, 2vw, 25px);
+    padding: 0 clamp(12px, 1.7vw, 23px);
+    border: 1px solid var(--hashi-vermelho);
+    border-radius: 10px;
+    background: linear-gradient(var(--hashi-vermelho), var(--hashi-vermelho-escuro));
+    color: var(--hashi-texto);
+    font-size: clamp(13px, 1.4vw, 19px);
+    font-weight: 700;
+}
+
+.menu-banner-link span {
+    color: inherit;
+    font-size: 1.3em;
+    line-height: 1;
+}
+
+.menu-banner-foto {
+    display: block;
+    width: 100%;
+    height: clamp(155px, 20.5vw, 306px);
+    margin-block: -9px -14px;
+    object-fit: contain;
+    object-position: center;
+    filter: drop-shadow(0 12px 13px #0009);
+}
+
+/* ===== FILTROS E PRODUTOS ===== */
+.menu-vitrine {
+    margin-top: clamp(30px, 4.3vw, 60px);
+    scroll-margin-top: 20px;
+}
+
+.menu-filtros {
+    display: flex;
+    gap: 8px;
+    margin: 14px 0 20px;
+    padding: 2px 1px 5px;
+    min-width: 0;
+    overflow-x: auto;
+    border: 0;
+    scrollbar-width: thin;
+    scrollbar-color: var(--hashi-texto-discreto) transparent;
+}
+
+.menu-filtro {
+    position: relative;
+    cursor: pointer;
+}
+
+.menu-filtro input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.menu-filtro span {
+    display: grid;
+    align-items: center;
+    min-height: 34px;
+    padding: 6px 12px;
+    color: var(--hashi-texto-suave);
+    border: 1px solid var(--hashi-contorno);
+    border-radius: 8px;
+    background: var(--hashi-superficie);
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.menu-filtro input:checked + span {
+    color: var(--hashi-texto);
+    border-color: var(--hashi-contorno-vermelho);
+    background: var(--hashi-vermelho-escuro);
+}
+
+.menu-filtro input:focus-visible + span {
+    outline: 2px solid var(--hashi-foco);
+    outline-offset: -3px;
+    border-radius: 8px;
+}
+
+.menu-banner-link:focus-visible {
+    outline: 2px solid var(--hashi-foco);
+    outline-offset: 3px;
+}
+
+.menu-grade {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: clamp(10px, 1.3vw, 18px);
+}
+
+.menu-card {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--hashi-superficie);
+    min-width: 0;
+    border: 1px solid var(--hashi-contorno);
+    border-radius: 15px;
+}
+
+.menu-card-destaque {
+    border-color: var(--hashi-contorno-vermelho);
+}
+
+.menu-card-imagem {
+    position: relative;
+    display: grid;
+    place-items: center;
+    aspect-ratio: 1.8;
+    overflow: hidden;
+    background: var(--hashi-superficie-elevada);
+    border-bottom: 1px solid var(--hashi-contorno);
+}
+
+.menu-card-imagem img {
+    width: 40%;
+    max-width: 48px;
+    opacity: .27;
+}
+
+.menu-mais-vendido {
+    position: absolute;
+    top: 11px;
+    left: 11px;
+    z-index: 1;
+    padding: 5px 8px;
+    border-radius: 6px;
+    background: var(--hashi-vermelho-escuro);
+    color: var(--hashi-texto);
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.menu-card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    padding: 12px;
+}
+
+.menu-card-info h3 {
+    font-size: 15px;
+    line-height: 1.25;
+}
+
+.menu-card-info p {
+    color: var(--hashi-texto-secundario);
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.menu-preco {
+    margin-top: auto;
+    padding-top: 5px;
+    color: var(--hashi-texto);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.menu-vitrine:has(input[value="combos"]:checked) .menu-card:not([data-categoria="combos"]),
+.menu-vitrine:has(input[value="sushis"]:checked) .menu-card:not([data-categoria="sushis"]),
+.menu-vitrine:has(input[value="temakis"]:checked) .menu-card:not([data-categoria="temakis"]),
+.menu-vitrine:has(input[value="hot-rolls"]:checked) .menu-card:not([data-categoria="hot-rolls"]),
+.menu-vitrine:has(input[value="sobremesas"]:checked) .menu-card:not([data-categoria="sobremesas"]) {
+    display: none;
+}
+
+
+.menu-card-foto {
+    background: var(--hashi-superficie);
+}
+
+.menu-card-foto img {
+    width: 94%;
+    max-width: none;
+    height: 100%;
+    object-fit: contain;
+    opacity: 1;
+}
+
+@media (max-width: 1160px) {
+    .menu-grade {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 920px) {
+    .menu-grade {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .pagina-cardapio .footer-top {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .pagina-cardapio .footer-bottom {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .menu-banner {
+        border-radius: 18px;
+    }
+
+    .menu-banner-slide {
+        min-height: 190px;
+        padding-block: 13px 42px;
+    }
+
+    .menu-banner-foto {
+        height: clamp(112px, 25vw, 168px);
+        margin-block: 0;
+    }
+
+    .menu-grade {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 410px) {
+    .menu-banner-controles .menu-banner-navegacao {
+        gap: 2px;
+    }
+
+    .menu-banner-controles .menu-banner-navegacao button {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (max-width: 500px) {
+    .menu-banner-slide {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 5px;
+        padding: 18px var(--banner-recuo) 43px;
+    }
+
+    .menu-banner-foto {
+        height: 138px;
+    }
+
+    .menu-grade {
+        gap: 10px;
+    }
+
+    .menu-filtros {
+        margin-bottom: 16px;
+    }
+}
+
+/* ===== CONTROLES DO CARROSSEL ===== */
+.menu-banner-controles,
+.menu-banner-indicadores,
+.menu-banner-navegacao {
+    display: flex;
+    align-items: center;
+}
+
+.menu-banner-controles {
+    position: absolute;
+    inset: auto 0 5px;
+    justify-content: center;
+    min-height: 38px;
+    padding: 0 var(--banner-recuo);
+}
+
+.menu-banner-controles button {
+    display: grid;
+    place-items: center;
+    border: 0;
+    color: var(--hashi-texto);
+    cursor: pointer;
+}
+
+.menu-banner-indicadores {
+    gap: 3px;
+}
+
+.menu-banner-indicadores button {
+    width: 25px;
+    height: 36px;
+    background: transparent;
+}
+
+.menu-banner-indicadores button::before {
+    width: 7px;
+    height: 7px;
+    border-radius: 12px;
+    background: var(--hashi-texto-discreto);
+    content: "";
+    transition: width .2s ease, background-color .2s ease;
+}
+
+.menu-banner-indicadores button[aria-current]::before {
+    width: 20px;
+    background: var(--hashi-vermelho);
+}
+
+.menu-banner-navegacao {
+    position: absolute;
+    right: var(--banner-recuo);
+    gap: 4px;
+}
+
+.menu-banner-navegacao button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid var(--hashi-texto);
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--hashi-fundo) 73%, transparent);
+}
+
+.menu-banner-controles button:focus-visible {
+    outline: 2px solid var(--hashi-foco);
+    outline-offset: 2px;
+}
+
+.menu-banner-navegacao :is([data-anterior], [data-proximo]) span {
+    width: 7px;
+    height: 7px;
+    border-top: 1.5px solid;
+    border-right: 1.5px solid;
+    transform: translateX(-1px) rotate(45deg);
+}
+
+.menu-banner-navegacao [data-anterior] span {
+    transform: translateX(1px) rotate(-135deg);
+}
+
+.menu-banner-navegacao [data-rotacao] span {
+    width: 0;
+    height: 0;
+    margin-left: 2px;
+    border-block: 5px solid transparent;
+    border-left: 8px solid;
+}
+
+.menu-banner-navegacao [data-reproduzindo] span {
+    width: 7px;
+    height: 10px;
+    margin: 0;
+    border: solid;
+    border-width: 0 2px;
+}
+
+/* Os slides invisíveis ainda definem a altura comum da grade. */
+.menu-banner-slide[hidden] {
+    display: grid;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.menu-banner-controles[hidden] {
+    display: none;
+}
+
+.menu-destaque-combo .menu-banner-foto {
+    transform: rotate(-3deg);
+}
+
+.menu-destaque-sushi .menu-banner-foto {
+    transform: rotate(3deg);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .menu-banner-slide:not([hidden]) > * {
+        animation: menu-banner-entrada .28s ease-out both;
+    }
+}
+
+@keyframes menu-banner-entrada {
+    from {
+        opacity: .35;
+        translate: 0 3px;
+    }
+    to {
+        opacity: 1;
+        translate: 0 0;
+    }
+}
+
+.menu-card-imagem::before {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background: url("../Img-pagina-inicial/Fundo-Textura.jpg") center / 230px;
+    opacity: .24;
+    pointer-events: none;
+}
+
+.menu-card-imagem img {
+    position: relative;
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .menu-card:hover {
+        border-color: var(--hashi-contorno-vermelho);
+        background-color: var(--hashi-superficie-elevada);
+        box-shadow: 0 8px 20px #0005;
+    }
+
+    .menu-card:hover .menu-preco {
+        color: var(--hashi-vermelho);
+    }
+
+    .menu-filtro:hover span {
+        border-color: var(--hashi-contorno-vermelho);
+        background: var(--hashi-superficie-quente-hover);
+        color: var(--hashi-texto);
+    }
+
+    .menu-filtro:hover input:checked + span {
+        border-color: var(--hashi-contorno-vermelho);
+        background: var(--hashi-vermelho-hover);
+    }
+
+    .menu-banner-link:hover {
+        border-color: var(--hashi-contorno-vermelho);
+        background: var(--hashi-vermelho-hover);
+    }
+
+    .menu-banner-navegacao button:hover {
+        border-color: var(--hashi-contorno-vermelho);
+        background: var(--hashi-superficie-quente-hover);
+    }
+
+    .menu-banner-indicadores button:hover::before {
+        background: var(--hashi-vermelho);
+    }
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+    .menu-card {
+        transition: transform .2s ease, border-color .2s ease, background-color .2s ease, box-shadow .2s ease;
+    }
+
+    .menu-card-imagem img,
+    .menu-banner-foto,
+    .menu-banner-link span {
+        transition: scale .24s ease, translate .2s ease;
+    }
+
+    .menu-preco,
+    .menu-filtro span,
+    .menu-banner-link,
+    .menu-banner-navegacao button {
+        transition: color .18s ease, background-color .18s ease, border-color .18s ease;
+    }
+
+    .menu-card:hover {
+        transform: translateY(-3px);
+    }
+
+    .menu-card:hover .menu-card-imagem img,
+    .menu-banner-slide:hover .menu-banner-foto {
+        scale: 1.04;
+    }
+
+    .menu-banner-link:hover span {
+        translate: 3px 0;
+    }
+}

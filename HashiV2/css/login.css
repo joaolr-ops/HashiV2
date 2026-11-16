@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    color: #FFFFFF;
+    color: var(--hashi-texto);
     border: none;
     outline: none;
     font-family: 'Montserrat', sans-serif;
@@ -24,7 +24,7 @@
     height: 550px;
     background-color: rgba(11, 11, 11, 0.2);
     border-radius: 30px;
-    border: 1px solid #8a8a8a;
+    border: 1px solid var(--hashi-cinza-campo);
 }
 
 .Bem-vindo{
@@ -63,7 +63,7 @@
 }
 
 .Email input:focus{
-    border: 1px solid #8a8a8a;
+    border: 1px solid var(--hashi-cinza-campo);
 }
 
 .Email input::placeholder{
@@ -90,7 +90,7 @@
 }
 
 .Senha input:focus{
-    border: 1px solid #8a8a8a;
+    border: 1px solid var(--hashi-cinza-campo);
 }
 
 .Senha input::placeholder{
@@ -118,7 +118,7 @@
     display: flex;
     justify-content: center;
     margin-top: 8px;
-    color: #e10600;
+    color: var(--hashi-vermelho);
 }
 
 .Senha-Esq:hover{
@@ -133,9 +133,123 @@
 }
 
 .Nao-tem-uma-conta a{
-    color: #e10600;
+    color: var(--hashi-vermelho);
 }
 
 .Nao-tem-uma-conta a:hover{
     color: rgba(225, 6, 0, 0.7);
+}
+
+.recuperar-senha {
+    position: fixed;
+    inset: 0;
+    width: min(440px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px);
+    margin: auto;
+    padding: 28px clamp(20px, 6vw, 38px);
+    overflow-y: auto;
+    color-scheme: dark;
+    background: var(--hashi-fundo);
+    border: 1px solid var(--hashi-contorno-forte);
+    border-radius: 24px;
+    text-align: center;
+}
+
+.recuperar-senha::backdrop {
+    background: rgb(0 0 0 / 70%);
+}
+
+.recuperar-logo {
+    display: block;
+    width: 106px;
+    height: 80px;
+    object-fit: contain;
+    margin: 0 auto 10px;
+}
+
+.recuperar-senha h2 {
+    font-size: clamp(22px, 6vw, 28px);
+}
+
+#recuperar-descricao {
+    margin-top: 9px;
+    color: var(--hashi-texto-secundario);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.recuperar-form {
+    display: grid;
+    gap: 9px;
+    margin-top: 24px;
+    text-align: left;
+}
+
+.recuperar-form label {
+    font-size: 14px;
+}
+
+.recuperar-form input {
+    width: 100%;
+    min-height: 46px;
+    padding: 0 12px;
+    border: 1px solid var(--hashi-contorno);
+    border-radius: 9px;
+    background: var(--hashi-superficie);
+    font-size: 16px;
+}
+
+.recuperar-senha button {
+    cursor: pointer;
+}
+
+.recuperar-senha :is(button, input):focus-visible {
+    outline: 2px solid var(--hashi-foco);
+    outline-offset: 3px;
+}
+
+.recuperar-enviar {
+    min-height: 46px;
+    margin-top: 7px;
+    padding: 8px 12px;
+    border-radius: 9px;
+    background: var(--hashi-vermelho);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.recuperar-enviar:hover {
+    background: var(--hashi-vermelho-hover);
+}
+
+.recuperar-status:not(:empty) {
+    color: var(--hashi-aviso);
+    font-size: 13px;
+    line-height: 1.45;
+}
+
+.recuperar-fechar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--hashi-texto-secundario);
+    font-size: 25px;
+}
+
+.recuperar-voltar {
+    margin-top: 16px;
+    padding: 8px;
+    border-radius: 5px;
+    background: transparent;
+    color: var(--hashi-aviso);
+    font-size: 14px;
+}
+
+.recuperar-fechar:hover,
+.recuperar-voltar:hover {
+    background: color-mix(in srgb, var(--hashi-texto) 5%, transparent);
 }

@@ -9,7 +9,7 @@ header {
     height: 1.6px;
     width: calc(100% - 120px);
     margin: 0 auto;
-    background-color: #e10600;
+    background-color: var(--hashi-vermelho);
     border-radius: 999px;
 }
 
@@ -43,16 +43,16 @@ header {
 }
 
 .inicio {
-    color: #e10600;
-    border-bottom: 2px solid #e10600;
+    color: var(--hashi-vermelho);
+    border-bottom: 2px solid var(--hashi-vermelho);
 }
 
 .cardapios:hover,
 .promocoes:hover,
 .ajuda:hover,
 .entregador:hover {
-    color: #e10600;
-    border-bottom: 2px solid #e10600;
+    color: var(--hashi-vermelho);
+    border-bottom: 2px solid var(--hashi-vermelho);
 }
 
 .header-actions {
@@ -75,24 +75,26 @@ header {
     gap: 8px;
     padding: 0 24px;
     height: 46px;
-    border: 0.5px solid #FFFFFF;
+    border: 0.5px solid var(--hashi-texto);
     border-radius: 18px;
     font-size: 16px;
     transition: background-color 0.15s ease;
 }
 
 .conta-buttom:hover {
-    background-color: #161616;
+    background-color: var(--hashi-superficie);
 }
 
 .conta-icon {
     width: 30px;
     height: 30px;
-    color: #FFFFFF; 
+    color: var(--hashi-texto); 
 }
 
 
 .cart-icon-wrapper {
+    position: relative;
+    flex-shrink: 0;
     display: flex;
     align-items: center;
 }
@@ -100,4 +102,98 @@ header {
 .cart-icon {
     width: 30px;
     height: 30px;
+}
+
+/* O mesmo cabeçalho se adapta nas páginas que usam esta folha. */
+@media (max-width: 1080px) {
+    header {
+        padding-inline: clamp(16px, 4vw, 44px);
+    }
+
+    .header-divider {
+        width: calc(100% - 2 * clamp(16px, 4vw, 44px));
+    }
+
+    .nav-links {
+        gap: clamp(16px, 4vw, 42px);
+    }
+}
+
+@media (max-width: 760px) {
+    header {
+        height: auto;
+        flex-wrap: wrap;
+        gap: 12px 16px;
+        padding-block: 12px;
+    }
+
+    header .hashi-header {
+        width: 56px;
+        height: auto;
+    }
+
+    header .hashi-header-logo {
+        width: 66px;
+        height: auto;
+    }
+
+    header .nav-links {
+        order: 1;
+        flex-basis: 100%;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 4px 0;
+    }
+
+    header .nav-links a {
+        white-space: nowrap;
+        font-size: 15px;
+    }
+
+    header .header-actions {
+        gap: 10px;
+    }
+
+    header .conta-buttom {
+        height: 40px;
+        padding-inline: 10px;
+        font-size: 13px;
+    }
+
+    header .conta-icon {
+        width: 21px;
+        height: 21px;
+    }
+}
+
+@media (max-width: 390px) {
+    header .lupa {
+        display: none;
+    }
+}
+
+/* Ajuste do menu com cinco links em telas intermediarias. */
+@media (min-width: 761px) and (max-width: 1450px) {
+    body[data-painel-perfil="entregador"] > header .nav-links {
+        gap: clamp(20px, calc(10vw - 80px), 65px);
+    }
+}
+
+body[data-painel-perfil="entregador"] .entregador[aria-current="page"] {
+    color: var(--hashi-vermelho);
+    border-bottom: 2px solid var(--hashi-vermelho);
+}
+
+/* ===== CONTADOR DO CARRINHO EM TODAS AS PAGINAS ===== */
+.carrinho-contador {
+    position: absolute;
+    top: -6px;
+    right: -7px;
+    min-width: 17px;
+    padding: 2px 4px;
+    border-radius: 12px;
+    background: var(--hashi-vermelho);
+    color: var(--hashi-texto);
+    text-align: center;
+    font-size: 11px;
 }

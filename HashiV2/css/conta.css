@@ -1,0 +1,627 @@
+
+/* ===== AREA DA CONTA ===== */
+.conta-layout {
+    display: grid;
+    grid-template-columns: 285px minmax(0, 1fr);
+    min-height: 100vh;
+}
+.conta-menu {
+    padding: 30px 24px;
+    display: flex;
+    flex-direction: column;
+    background: var(--hashi-fundo);
+    border-right: 1px solid var(--hashi-contorno);
+}
+.conta-marca {
+    display: flex;
+    align-items: center;
+    margin-bottom: 36px;
+}
+.conta-marca img:first-child {
+    width: 65px;
+}
+.conta-marca img:last-child {
+    width: 92px;
+}
+.conta-identidade {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    background: var(--hashi-superficie);
+    border-radius: 12px;
+}
+.conta-avatar {
+    color: var(--hashi-vermelho);
+    font-size: 30px;
+}
+.conta-menu small {
+    display: block;
+    color: var(--hashi-texto-secundario);
+    margin-top: 6px;
+}
+.conta-legenda {
+    color: var(--hashi-texto-secundario);
+    font-size: 11px;
+    margin: 44px 12px 16px;
+}
+.conta-menu nav {
+    display: grid;
+    gap: 8px;
+}
+.conta-menu nav a {
+    display: flex;
+    justify-content: space-between;
+    padding: 18px;
+    border-radius: 12px;
+    color: var(--hashi-texto-secundario);
+}
+.conta-menu nav a[aria-current="page"] {
+    background: var(--hashi-contorno-vermelho);
+    color: white;
+}
+.conta-menu nav a[aria-current="page"] span {
+    color: var(--hashi-vermelho);
+}
+.conta-menu nav a:hover {
+    background: var(--hashi-superficie);
+}
+.conta-sair {
+    margin-top: auto;
+    padding: 40px 12px 24px;
+    background: none;
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+    font: inherit;
+}
+.conta-ajuda {
+    border-top: 1px solid var(--hashi-contorno);
+    padding: 22px 12px 0;
+    font-size: 14px;
+}
+.conta-principal {
+    min-width: 0;
+    background: var(--hashi-fundo);
+}
+.conta-principal header {
+    padding: 0 36px;
+    height: 100px;
+    border-bottom: 1px solid var(--hashi-contorno);
+    gap: 22px;
+}
+.conta-principal header .logo-group {
+    display: none;
+}
+.conta-principal .nav-links {
+    gap: 24px;
+}
+.conta-principal .nav-links a {
+    font-size: 15px;
+}
+.conta-conteudo {
+    max-width: 1150px;
+    padding: 30px clamp(20px, 4vw, 64px) 60px;
+    margin: auto;
+}
+.conta-caminho {
+    color: var(--hashi-texto-secundario);
+    font-size: 13px;
+    margin-bottom: 36px;
+}
+.conta-caminho span {
+    margin-left: 12px;
+    color: inherit;
+}
+.conta-conteudo h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
+.conta-conteudo p {
+    color: var(--hashi-texto-secundario);
+    line-height: 1.6;
+}
+.conta-card {
+    background: var(--hashi-superficie);
+    border: 1px solid var(--hashi-contorno);
+    border-radius: 14px;
+    padding: 26px;
+    margin-top: 24px;
+}
+.conta-card h2 {
+    font-size: 18px;
+    margin-bottom: 22px;
+}
+.conta-campos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+.conta-campos label {
+    font-size: 13px;
+    color: var(--hashi-texto-suave);
+}
+.conta-campos input {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    border: 1px solid var(--hashi-contorno-forte);
+    background: var(--hashi-fundo);
+    color-scheme: dark;
+    padding: 13px;
+    border-radius: 9px;
+    font: inherit;
+}
+.conta-salvar, .conta-secundario {
+    padding: 12px 22px;
+    margin-top: 24px;
+    border-radius: 8px;
+    border: 1px solid var(--hashi-contorno-forte);
+    font: inherit;
+    cursor: pointer;
+}
+.conta-salvar {
+    background: var(--hashi-vermelho);
+    border-color: var(--hashi-vermelho);
+}
+.conta-salvar:hover {
+    background: var(--hashi-vermelho-hover);
+}
+.conta-secundario {
+    background: transparent;
+    margin-right: 10px;
+}
+.conta-metodos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.conta-metodos label {
+    padding: 20px 12px;
+    border: 1px solid var(--hashi-contorno-forte);
+    border-radius: 10px;
+    cursor: pointer;
+}
+.conta-metodos label:has(:checked) {
+    border-color: var(--hashi-vermelho);
+    background: var(--hashi-superficie-quente);
+}
+.conta-metodos small {
+    display: block;
+    color: var(--hashi-texto-secundario);
+    margin-top: 10px;
+}
+.conta-opcao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--hashi-contorno);
+}
+.conta-opcao input {
+    appearance: none;
+    width: 42px;
+    height: 24px;
+    border-radius: 20px;
+    background: #555;
+    flex-shrink: 0;
+    cursor: pointer;
+    position: relative;
+}
+.conta-opcao input::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 3px;
+    left: 3px;
+    background: white;
+    border-radius: 50%;
+}
+.conta-opcao input:checked {
+    background: var(--hashi-vermelho);
+}
+.conta-opcao input:checked::after {
+    left: 21px;
+}
+.conta-nota {
+    font-size: 12px;
+    margin-top: 24px;
+}
+.conta-aviso:empty {
+    display: none;
+}
+.conta-aviso {
+    margin-bottom: 20px;
+}
+.conta-conteudo [hidden] {
+    display: none;
+}
+.conta-layout :focus-visible {
+    outline: 2px solid var(--hashi-texto);
+    outline-offset: 4px;
+}
+@media (max-width: 1100px) {
+    .conta-layout {
+    grid-template-columns: 230px minmax(0, 1fr);
+}
+    .conta-principal header {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 20px;
+}
+    .conta-principal .nav-links {
+    flex-wrap: wrap;
+    gap: 15px;
+}
+}
+@media (max-width: 700px) {
+    .conta-layout {
+    grid-template-columns: 1fr;
+}
+    .conta-menu {
+    padding: 18px;
+}
+    .conta-marca, .conta-legenda, .conta-ajuda {
+    display: none;
+}
+    .conta-menu nav {
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 16px;
+}
+    .conta-sair {
+    padding: 20px 12px 0;
+}
+    .conta-campos, .conta-metodos {
+    grid-template-columns: 1fr;
+}
+    .conta-card {
+    padding: 20px;
+}
+}
+
+/* ===== ACABAMENTO DA CONTA E CARTEIRA ===== */
+.conta-menu {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--hashi-fundo);
+}
+.conta-identidade {
+    border: 1px solid var(--hashi-contorno);
+}
+.conta-identidade > div {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+.conta-avatar {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--hashi-superficie-quente);
+    border: 1px solid var(--hashi-contorno-vermelho);
+    font-size: 19px;
+    font-weight: 700;
+}
+.conta-menu nav a {
+    border: 1px solid transparent;
+    transition: background .18s, border-color .18s;
+}
+.conta-menu nav a[aria-current="page"] {
+    border-color: var(--hashi-contorno-vermelho);
+    box-shadow: inset 3px 0 var(--hashi-vermelho);
+}
+.conta-conteudo {
+    max-width: 1200px;
+}
+.conta-conteudo h1 {
+    font-size: clamp(28px, 2.8vw, 36px);
+    letter-spacing: -.03em;
+}
+.conta-card {
+    background: color-mix(in srgb, var(--hashi-superficie) 65%, var(--hashi-fundo));
+    padding: clamp(20px, 2.5vw, 32px);
+}
+.conta-card h2 {
+    letter-spacing: -.02em;
+}
+.conta-campos input,
+.conta-campos select {
+    min-height: 48px;
+    transition: border-color .18s, background .18s;
+}
+.conta-campos input:hover,
+.conta-campos select:hover {
+    border-color: var(--hashi-texto-discreto);
+}
+.conta-campos select {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 13px;
+    border: 1px solid var(--hashi-contorno-forte);
+    border-radius: 9px;
+    background: var(--hashi-fundo);
+    font: inherit;
+    color-scheme: dark;
+}
+.conta-opcao strong {
+    font-size: 14px;
+    font-weight: 600;
+}
+.conta-opcao small {
+    display: block;
+    margin-top: 5px;
+    line-height: 1.5;
+    color: var(--hashi-texto-secundario);
+    font-size: 12px;
+}
+.conta-opcao input::after {
+    transition: left .18s;
+}
+.conta-secundario:hover {
+    border-color: var(--hashi-texto-discreto);
+    background: var(--hashi-superficie-elevada);
+}
+.conta-card-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 24px;
+}
+.conta-card-topo h2 {
+    margin: 0 0 6px;
+}
+.conta-card-topo p {
+    font-size: 13px;
+}
+.conta-card-topo button {
+    margin-top: 0;
+    flex-shrink: 0;
+    font-size: 13px;
+}
+.conta-vazio {
+    padding: 36px 24px;
+    border: 1px dashed var(--hashi-contorno-forte);
+    border-radius: 12px;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 20px;
+}
+.conta-carteira {
+    display: grid;
+    gap: 14px;
+}
+.conta-cartao-salvo {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 18px;
+    background: var(--hashi-fundo);
+    border: 1px solid var(--hashi-contorno);
+    padding: 20px;
+    border-radius: 12px;
+}
+.conta-cartao-salvo h3 {
+    font-size: 15px;
+    margin-bottom: 6px;
+    overflow-wrap: anywhere;
+}
+.conta-cartao-salvo p {
+    font-size: 13px;
+}
+.conta-bandeira {
+    display: grid;
+    place-items: center;
+    min-width: 68px;
+    max-width: 100px;
+    min-height: 42px;
+    padding: 10px;
+    font-size: 12px;
+    background: var(--hashi-superficie-elevada);
+    border-radius: 8px;
+}
+.conta-selo {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 9px;
+    background: var(--hashi-contorno-vermelho);
+    border-radius: 5px;
+    font-size: 10px;
+}
+.conta-cartao-acoes {
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.conta-cartao-acoes button {
+    margin: 0;
+    font-size: 12px;
+    padding: 9px 12px;
+}
+.conta-dialogo {
+    margin: auto;
+    width: min(580px, calc(100% - 32px));
+    max-height: calc(100dvh - 32px);
+    overflow-y: auto;
+    background: var(--hashi-superficie);
+    border: 1px solid var(--hashi-contorno-forte);
+    border-radius: 20px;
+    padding: clamp(20px, 3vw, 32px);
+    box-shadow: 0 24px 80px #0008;
+}
+.conta-dialogo::backdrop {
+    background: #000b;
+    backdrop-filter: blur(5px);
+}
+.conta-dialogo .conta-legenda {
+    margin: 0 0 8px;
+    font-size: 10px;
+    letter-spacing: .14em;
+}
+.conta-dialogo .conta-nota {
+    margin: 18px 0 24px;
+    color: var(--hashi-texto-secundario);
+}
+.conta-fechar {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--hashi-contorno-forte);
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    font-size: 24px !important;
+}
+.conta-dialogo-acoes {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+.conta-dialogo-acoes button {
+    margin-right: 0;
+}
+.conta-cartao-preview {
+    padding: 24px;
+    border: 1px solid var(--hashi-contorno-vermelho);
+    border-radius: 16px;
+    background: linear-gradient(120deg, var(--hashi-superficie-quente), var(--hashi-contorno-vermelho));
+}
+.conta-cartao-preview > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    font-size: 12px;
+}
+.conta-cartao-preview p {
+    font-size: clamp(17px, 3vw, 23px);
+    letter-spacing: .1em;
+    margin: 18px 0;
+    color: var(--hashi-texto);
+}
+.conta-chip {
+    display: block;
+    width: 34px;
+    height: 25px;
+    margin-top: 24px;
+    border: 1px solid var(--hashi-texto-discreto);
+    border-radius: 6px;
+    background: linear-gradient(135deg, #b5b5b5, #555);
+}
+.conta-aviso {
+    padding: 12px 16px;
+    border-left: 3px solid var(--hashi-vermelho);
+    background: var(--hashi-superficie);
+    border-radius: 5px;
+}
+@media (max-width: 700px) {
+    .conta-menu {
+        position: static;
+        height: auto;
+    }
+    .conta-card-topo {
+        flex-wrap: wrap;
+    }
+    .conta-cartao-acoes {
+        margin-left: 0;
+        width: 100%;
+    }
+    .conta-dialogo .conta-campos {
+        gap: 16px;
+    }
+}
+@media (prefers-reduced-motion: reduce) {
+    .conta-layout *,
+    .conta-layout *::after {
+        transition: none;
+    }
+}
+
+/* ===== DADOS PESSOAIS E PROFISSIONAIS ===== */
+[data-painel="dados"] .conta-card {
+    padding: 0;
+    overflow: hidden;
+}
+.conta-dados-topo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--hashi-contorno);
+}
+.conta-dados-topo h2 {
+    margin: 0 0 5px;
+    font-size: 17px;
+}
+.conta-dados-topo p {
+    font-size: 13px;
+}
+.conta-dados-marca {
+    display: block;
+    width: 4px;
+    height: 36px;
+    border-radius: 4px;
+    background: var(--hashi-vermelho);
+    flex-shrink: 0;
+}
+[data-painel="dados"] .conta-campos {
+    padding: 28px;
+    gap: 24px 28px;
+}
+[data-painel="dados"] .conta-campos label {
+    font-size: 13px;
+    font-weight: 600;
+}
+[data-painel="dados"] .conta-campos input {
+    min-height: 50px;
+    margin-top: 10px;
+    padding: 14px 16px;
+    font-size: 14px;
+    font-weight: 400;
+    border-color: var(--hashi-contorno);
+    background: var(--hashi-fundo);
+}
+[data-painel="dados"] input::placeholder {
+    color: var(--hashi-texto-discreto);
+    opacity: 1;
+}
+[data-painel="dados"] input:focus {
+    border-color: var(--hashi-vermelho);
+    outline: 2px solid var(--hashi-contorno-vermelho);
+    outline-offset: 2px;
+}
+.conta-dados-rodape {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 28px;
+    border-top: 1px solid var(--hashi-contorno);
+    background: var(--hashi-fundo);
+}
+.conta-dados-rodape .conta-salvar {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 12px 20px;
+}
+.conta-dados-rodape > span {
+    color: var(--hashi-texto-secundario);
+    font-size: 12px;
+}
+@media (max-width: 700px) {
+    .conta-dados-topo,
+    [data-painel="dados"] .conta-campos,
+    .conta-dados-rodape {
+        padding: 20px;
+    }
+    .conta-dados-rodape {
+        flex-wrap: wrap;
+    }
+}

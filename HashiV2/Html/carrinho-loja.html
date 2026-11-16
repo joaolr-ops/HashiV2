@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/carrinho.css">
+    <title>Carrinho | Hashi</title>
+</head>
+<body class="pagina-carrinho" data-painel-perfil="loja">
+    <header>
+        <div class="logo-group">
+            <img class="hashi-header" src="../Img-pagina-inicial/Logo-Site.png" alt="Logo Hashi na cor branca">
+            <img class="hashi-header-logo" src="../Img-pagina-inicial/Logo-hashi.png" alt="Logo Hashi na cor branca versão escrita">
+        </div>
+
+        <nav class="nav-links">
+            <a data-inicio-hashi href="index-loja.html">Início</a>
+            <a class="cardapios" href="cardapios-loja.html">Cardápios</a>
+            <a class="promocoes" href="promocoes-loja.html">Promoções</a>
+            <a class="ajuda" href="#atendimento">Ajuda</a>
+            <a class="loja" href="index-loja.html#minha-area">Loja</a>
+        </nav>
+
+        <div class="header-actions">
+            <img class="lupa" src="../Img-pagina-inicial/Lupa.png" alt="Lupa de pesquisa">
+
+
+            <a class="conta-buttom" href="conta-loja.html">
+                <svg class="conta-icon" viewBox="3 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="M5 19c1.2-3.2 4-5 7-5s5.8 1.8 7 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                Minha conta
+            </a>
+
+
+            <a class="cart-icon-wrapper" href="carrinho-loja.html" aria-label="Carrinho">
+                <img class="cart-icon" src="../Img-pagina-inicial/Carrinho-icon2.png" alt="">
+            </a>
+        </div>
+    </header>
+
+    <!-- Divisor separado do header -->
+    <div class="header-divider" role="presentation"></div>
+
+    <main class="carrinho-pagina" data-pagina-carrinho>
+        <h1>Seu carrinho</h1>
+
+        <div class="carrinho-layout">
+            <div class="carrinho-conteudo">
+                <!-- PROGRESSO DO FRETE -->
+                <section class="carrinho-frete" aria-labelledby="titulo-frete">
+                    <img src="../Img-pagina-inicial/Mini-moto.png" alt="">
+                    <div>
+                        <h2 id="titulo-frete" data-texto-frete>Frete grátis a partir de R$ 100,00</h2>
+                        <div class="carrinho-progresso">
+                            <progress max="10000" value="0" data-progresso-frete aria-label="Progresso para ganhar frete grátis"></progress>
+                            <span>R$ 100,00</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- PRODUTOS DO CARRINHO -->
+                <section class="carrinho-itens" aria-label="Itens do carrinho" data-itens></section>
+
+                <form class="carrinho-cupom" data-form-cupom>
+                    <div>
+                        <label for="cupom">Cupom de desconto</label>
+                        <p>Experimente o cupom HASHI10.</p>
+                    </div>
+                    <input id="cupom" name="cupom" placeholder="Digite o código" autocomplete="off">
+                    <button type="submit" class="carrinho-secundario">Aplicar</button>
+                    <p class="carrinho-status" data-status-cupom role="status"></p>
+                </form>
+
+                <section class="carrinho-salvos" data-secao-salvos hidden aria-labelledby="titulo-salvos">
+                    <h2 id="titulo-salvos">Salvos para depois</h2>
+                    <div data-salvos></div>
+                </section>
+
+                <section aria-labelledby="titulo-sugestoes">
+                    <h2 id="titulo-sugestoes">Você também pode gostar</h2>
+                    <div class="carrinho-sugestoes" data-sugestoes></div>
+                </section>
+            </div>
+
+            <!-- RESUMO DO PEDIDO -->
+            <aside class="carrinho-resumo" aria-labelledby="titulo-resumo">
+                <h2 id="titulo-resumo">Resumo do pedido</h2>
+                <dl class="carrinho-valores">
+                    <div><dt>Subtotal</dt><dd data-subtotal>R$ 0,00</dd></div>
+                    <div><dt>Taxa de entrega</dt><dd data-entrega>R$ 0,00</dd></div>
+                    <div data-linha-desconto hidden><dt>Desconto</dt><dd data-desconto></dd></div>
+                    <div class="carrinho-total"><dt>Total</dt><dd data-total>R$ 0,00</dd></div>
+                </dl>
+                <form class="carrinho-endereco" data-form-endereco>
+                    <label for="endereco-entrega">Endereço de entrega</label>
+                    <input id="endereco-entrega" name="endereco" placeholder="Rua, número e bairro" autocomplete="street-address" required>
+                    <button type="submit" class="carrinho-secundario">Salvar</button>
+                    <p data-status-endereco role="status"></p>
+                </form>
+                <p class="carrinho-prazo"><span>Tempo estimado</span><strong>20 a 30 min</strong></p>
+                <button class="carrinho-primario" type="button" data-finalizar>Finalizar pedido</button>
+                <a class="carrinho-secundario" href="cardapios-loja.html#vitrine">Continuar comprando</a>
+                <p class="carrinho-status" data-status-pedido role="status"></p>
+            </aside>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-top">
+
+            <div class="footer-brand">
+                <div class="logo-group">
+                    <img class="hashi-header" src="../Img-pagina-inicial/Logo-Site.png" alt="Logo Hashi">
+                    <img class="hashi-header-logo" src="../Img-pagina-inicial/Logo-hashi.png" alt="Hashi">
+                </div>
+                <p class="footer-tagline">Sabor, tradição e excelência da culinária japonesa, direto na porta da sua casa.</p>
+
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
+                            <circle cx="17.2" cy="6.8" r="1" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 9h2.5V6H14c-2 0-3.5 1.6-3.5 3.5V11H8v3h2.5v6h3v-6H16l.5-3h-3V9.6c0-.4.3-.6.5-.6Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.4"/>
+                            <path d="M8.5 8.7c.2-.4.6-.4.9-.4h.6c.2 0 .5 0 .7.5.2.6.7 1.8.8 2 .1.2.1.4 0 .6-.1.3-.2.4-.4.6-.2.2-.4.4-.2.7.6 1 1.6 2 3 2.5.3.1.4 0 .6-.2.2-.2.7-.8 1-1 .2-.2.4-.2.6-.1.3.1 1.7.8 2 .9.3.1.5.2.5.4 0 .2 0 1-.4 1.5-.4.6-1.8 1-2.4 1-1.4.1-2.9-.5-4.6-1.9-2.1-1.6-3.3-3.6-3.5-4-.2-.4-1.3-2-1.1-3.7.1-.7.6-1.2.8-1.4Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <a data-inicio-hashi href="index-loja.html">Início</a>
+                <a href="cardapios-loja.html">Cardápios</a>
+                <a href="promocoes-loja.html">Promoções</a>
+                <a href="#atendimento">Ajuda</a>
+                <a href="entregador.html">Seja um entregador</a>
+            </div>
+
+            <div class="footer-links" id="atendimento">
+                <h4>Atendimento</h4>
+                <a href="#">Fale conosco</a>
+                <a href="#">Perguntas frequentes</a>
+                <a href="#">Trocas e devoluções</a>
+                <a href="#">Política de privacidade</a>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contato</h4>
+                <p>Atendemos em todo Brasil</p>
+                <p>(34) 99898-9966</p>
+                <p>contato@hashi.com.br</p>
+                <p class="footer-hours">24 horas por dia com entregadores <br> ao seu dispor</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Hashi. Todos os direitos reservados.</p>
+            <p>Feito com <span class="footer-heart">♥</span> e muito wasabi.</p>
+        </div>
+    </footer>
+    <script src="../JavaScript/cabecalho-conta.js"></script>
+    <script src="../JavaScript/carrinho.js"></script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minha conta | Hashi</title>
+<link rel="icon" href="../Logo.svg">
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/header.css">
+<link rel="stylesheet" href="../css/conta.css">
+</head>
+<body data-painel-perfil="entregador">
+<div class="conta-layout">
+<aside class="conta-menu">
+<a class="conta-marca" href="index-entregador.html">
+<img src="../Img-pagina-inicial/Logo-Site.png" alt="">
+<img src="../Img-pagina-inicial/Logo-hashi.png" alt="Hashi">
+</a>
+<div class="conta-identidade">
+<span class="conta-avatar" aria-hidden="true">H</span>
+<div>
+<strong data-nome-conta>Minha conta</strong>
+<small>Entregador</small>
+</div>
+</div>
+<p class="conta-legenda">MINHA CONTA</p>
+<nav aria-label="Configura&#231;&#245;es da conta">
+<a href="#dados" data-aba="dados">Meus dados <span>&#8250;</span>
+</a>
+<a href="#pagamento" data-aba="pagamento">Pagamento <span>&#8250;</span>
+</a>
+<a href="#enderecos" data-aba="enderecos">Endere&#231;os <span>&#8250;</span>
+</a>
+<a href="#configuracoes" data-aba="configuracoes">Configura&#231;&#245;es <span>&#8250;</span>
+</a>
+</nav>
+<button class="conta-sair" data-sair-conta>Sair da conta &#8594;</button>
+<a class="conta-ajuda" href="index-entregador.html#atendimento">Precisa de ajuda?<small>Fale com nosso suporte</small>
+</a>
+</aside>
+<div class="conta-principal">
+<header>
+        <div class="logo-group">
+            <img class="hashi-header" src="../Img-pagina-inicial/Logo-Site.png" alt="Logo Hashi na cor branca">
+            <img class="hashi-header-logo" src="../Img-pagina-inicial/Logo-hashi.png" alt="Logo Hashi na cor branca versão escrita">
+        </div>
+
+        <nav class="nav-links">
+            <a class="inicio" data-inicio-hashi href="index-entregador.html" aria-current="page">Início</a>
+            <a class="cardapios" href="cardapios-entregador.html">Cardápios</a>
+            <a class="promocoes" href="promocoes-entregador.html">Promoções</a>
+            <a class="ajuda" href="index-entregador.html#atendimento">Ajuda</a>
+            <a class="entregador" href="painel-entregador.html">Entregador</a>
+        </nav>
+
+        <div class="header-actions">
+            <img class="lupa" src="../Img-pagina-inicial/Lupa.png" alt="Lupa de pesquisa">
+
+
+            <a class="conta-buttom" href="painel-entregador.html#minha-area">
+                <svg class="conta-icon" viewBox="3 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="M5 19c1.2-3.2 4-5 7-5s5.8 1.8 7 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                Minha conta
+            </a>
+
+
+            <a class="cart-icon-wrapper" id="carrinho" href="carrinho-entregador.html" aria-label="Carrinho">
+                <img class="cart-icon" src="../Img-pagina-inicial/Carrinho-icon2.png" alt="">
+            </a>
+        </div>
+    </header>
+<main class="conta-conteudo">
+<p class="conta-caminho">Minha conta <span>&#8250;</span> <span data-caminho>Meus dados</span>
+</p>
+<p class="conta-aviso" role="status" data-feedback>
+</p>
+<section data-painel="dados">
+<h1>Meus dados</h1>
+<p>Gerencie suas informa&#231;&#245;es pessoais.</p>
+<form class="conta-card" data-form="Dados pessoais">
+<div class="conta-dados-topo"><span class="conta-dados-marca" aria-hidden="true"></span><div><h2>Dados pessoais</h2><p>Seus dados de contato e identifica&#231;&#227;o.</p></div></div>
+<div class="conta-campos">
+<label>Nome completo<input name="nome" placeholder="Seu nome completo" type="text" autocomplete="off">
+</label>
+<label>E-mail<input name="email" placeholder="voce@exemplo.com" type="email" autocomplete="off">
+</label>
+<label>Telefone<input name="telefone" placeholder="(34) 99999-9999" type="tel" autocomplete="off">
+</label>
+<label>Data de nascimento<input name="nascimento" type="date" autocomplete="off">
+</label>
+</div>
+<div class="conta-dados-rodape"><span data-status-form role="status"></span><button class="conta-salvar" type="submit">Salvar altera&#231;&#245;es</button></div>
+</form>
+<form class="conta-card" data-form="Ve&#237;culo e entregas">
+<div class="conta-dados-topo"><span class="conta-dados-marca" aria-hidden="true"></span><div><h2>Ve&#237;culo e entregas</h2><p>Informe como e onde voc&#234; realiza suas entregas.</p></div></div>
+<div class="conta-campos">
+<label>Tipo de ve&#237;culo<input name="veiculo" placeholder="Ex. Moto, bicicleta ou carro" type="text" autocomplete="off">
+</label>
+<label>Placa<input name="placa" placeholder="Ex. ABC1D23" type="text" autocomplete="off">
+</label>
+<label>Regi&#227;o de atendimento<input name="regiao" placeholder="Ex. Santa M&#244;nica, Uberl&#226;ndia" type="text" autocomplete="off">
+</label>
+<label>Hor&#225;rio de disponibilidade<input name="disponibilidade" placeholder="Ex. Segunda a sexta, 18h &#224;s 23h" type="text" autocomplete="off">
+</label>
+</div>
+<div class="conta-dados-rodape"><span data-status-form role="status"></span><button class="conta-salvar" type="submit">Salvar altera&#231;&#245;es</button></div>
+</form>
+</section>
+<section data-painel="pagamento" hidden>
+<h1>Pagamento</h1>
+<p>Escolha como deseja pagar seus pedidos.</p>
+<form class="conta-card" data-form="Pagamento">
+<h2>M&#233;todo preferido</h2>
+<div class="conta-metodos">
+<label>
+<input type="radio" name="metodo" value="pix" checked> Pix<small>Pagamento instant&#226;neo</small>
+</label>
+<label>
+<input type="radio" name="metodo" value="cartao"> Cart&#227;o<small>Informado na finaliza&#231;&#227;o</small>
+</label>
+<label>
+<input type="radio" name="metodo" value="entrega"> Na entrega<small>Conforme o restaurante</small>
+</label>
+</div>
+<button class="conta-salvar">Salvar prefer&#234;ncia</button>
+</form>
+<!-- CARTEIRA DE CARTOES -->
+<div class="conta-card">
+    <div class="conta-card-topo">
+        <div>
+<h2>Meus cart&#245;es</h2>
+<p>Organize seus cart&#245;es e escolha o principal.</p>
+</div>
+        <button class="conta-salvar" type="button" data-adicionar-cartao>+ Adicionar cart&#227;o</button>
+    </div>
+    <div class="conta-carteira" data-cartoes>
+</div>
+</div>
+<dialog class="conta-dialogo" id="dialogo-cartao" aria-labelledby="titulo-cartao">
+    <form id="form-cartao">
+        <div class="conta-card-topo">
+            <div>
+<p class="conta-legenda">MINHA CARTEIRA</p>
+<h2 id="titulo-cartao">Adicionar cart&#227;o</h2>
+</div>
+            <button type="button" class="conta-fechar" data-fechar-cartao aria-label="Fechar">&#215;</button>
+        </div>
+        <div class="conta-cartao-preview" aria-hidden="true">
+            <div>
+<span>HASHI</span>
+<strong data-preview-bandeira>Visa</strong>
+</div>
+            <span class="conta-chip">
+</span>
+            <p>&#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; &#8226;&#8226;&#8226;&#8226; <span data-preview-final>0000</span>
+</p>
+            <div>
+<span data-preview-apelido>Meu cart&#227;o</span>
+<span data-preview-validade>MM/AA</span>
+</div>
+        </div>
+        <p class="conta-nota">Cadastro demonstrativo. Informe apenas os quatro &#250;ltimos d&#237;gitos. Para pagamentos reais, ser&#225; necess&#225;ria uma integra&#231;&#227;o de pagamento.</p>
+        <div class="conta-campos">
+            <label>Apelido do cart&#227;o<input name="apelido" required maxlength="40" placeholder="Ex. Cart&#227;o pessoal">
+</label>
+            <label>Bandeira<select name="bandeira">
+<option>Visa</option>
+<option>Mastercard</option>
+<option>Elo</option>
+<option>American Express</option>
+<option>Outra</option>
+</select>
+</label>
+            <label>&#218;ltimos quatro d&#237;gitos<input name="final" required inputmode="numeric" pattern="[0-9]{4}" maxlength="4" placeholder="1234">
+</label>
+            <label>Validade<input name="validade" required type="month">
+</label>
+        </div>
+        <label class="conta-opcao">
+<span>Usar como cart&#227;o principal</span>
+<input name="principal" type="checkbox" role="switch">
+</label>
+        <div class="conta-dialogo-acoes">
+            <button type="button" class="conta-secundario" data-fechar-cartao>Cancelar</button>
+            <button class="conta-salvar">Salvar cart&#227;o</button>
+        </div>
+    </form>
+</dialog>
+<div class="conta-card">
+<h2>Recebimentos</h2>
+<p>O cadastro de uma conta para receber repasses estar&#225; dispon&#237;vel quando o servi&#231;o de pagamentos for conectado.</p>
+</div>
+</section>
+<section data-painel="enderecos" hidden>
+<h1>Endere&#231;os</h1>
+<p>Gerencie seus endere&#231;os de entrega.</p>
+<div data-enderecos>
+</div>
+<form class="conta-card" id="form-endereco">
+<h2>Novo endere&#231;o</h2>
+<div class="conta-campos">
+<label>Identifica&#231;&#227;o (Casa, Trabalho...)<input name="apelido" type="text" autocomplete="off">
+</label>
+<label>CEP<input name="cep" type="text" autocomplete="off">
+</label>
+<label>Rua e n&#250;mero<input name="rua" type="text" autocomplete="off">
+</label>
+<label>Bairro<input name="bairro" type="text" autocomplete="off">
+</label>
+<label>Cidade / UF<input name="cidade" type="text" autocomplete="off">
+</label>
+<label>Complemento<input name="complemento" type="text" autocomplete="off">
+</label>
+</div>
+<button class="conta-salvar">Adicionar endere&#231;o</button>
+</form>
+</section>
+<section data-painel="configuracoes" hidden>
+<h1>Configura&#231;&#245;es</h1>
+<p>Personalize sua experi&#234;ncia.</p>
+<form class="conta-card" data-form="Preferencias">
+<h2>Prefer&#234;ncias</h2>
+<label class="conta-opcao">
+<span>
+<strong>Receber ofertas por e-mail</strong>
+<small>Ofertas e novidades dos restaurantes que voc&#234; gosta.</small>
+</span>
+<input type="checkbox" name="preferencia-0" role="switch">
+</label>
+<label class="conta-opcao">
+<span>
+<strong>Receber novidades pelo WhatsApp</strong>
+<small>Atualiza&#231;&#245;es e novidades no seu telefone.</small>
+</span>
+<input type="checkbox" name="preferencia-1" role="switch">
+</label>
+<label class="conta-opcao">
+<span>
+<strong>Confirmar antes de finalizar pedidos</strong>
+<small>Revise os itens e o endere&#231;o antes de concluir.</small>
+</span>
+<input type="checkbox" name="preferencia-2" role="switch">
+</label>
+<label class="conta-opcao">
+<span>
+<strong>Avisar sobre novas entregas</strong>
+<small>Acompanhe as atividades do seu perfil.</small>
+</span>
+<input type="checkbox" name="preferencia-3" role="switch">
+</label>
+<label class="conta-opcao">
+<span>
+<strong>Receber resumo de ganhos</strong>
+<small>Receba atualiza&#231;&#245;es importantes para seu trabalho.</small>
+</span>
+<input type="checkbox" name="preferencia-4" role="switch">
+</label>
+<button class="conta-salvar">Salvar prefer&#234;ncias</button>
+</form>
+<div class="conta-card">
+<h2>Sess&#227;o atual</h2>
+<p>Voc&#234; est&#225; conectado como entregador neste navegador.</p>
+<button class="conta-secundario" data-encerrar>Sair deste navegador</button>
+</div>
+</section>
+<p class="conta-nota">As altera&#231;&#245;es deste prot&#243;tipo ficam salvas neste navegador.</p>
+</main>
+</div>
+</div>
+<script src="../JavaScript/cabecalho-conta.js">
+</script>
+<script src="../JavaScript/carrinho.js">
+</script>
+<script src="../JavaScript/conta.js">
+</script>
+</body>
+</html>

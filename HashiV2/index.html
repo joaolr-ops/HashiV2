@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="./css/cadastro-cliente.css">
     <link rel="stylesheet" href="./css/cadastro-entregador.css">
     <link rel="stylesheet" href="./css/tela-selecao.css">
+    <link rel="stylesheet" href="./css/carrinho.css">
     <title>Hashi</title>
 </head>
-<body>
+<body data-inicio-publico>
     <header>
         <div class="logo-group">
             <img class="hashi-header" src="./Img-pagina-inicial/Logo-Site.png" alt="Logo Hashi na cor branca">
@@ -22,9 +23,9 @@
 
         <nav class="nav-links">
             <a class="inicio" href="#">Início</a>
-            <a class="cardapios" href="#">Cardápios</a>
-            <a class="promocoes" href="#">Promoções</a>
-            <a class="ajuda" href="#">Ajuda</a>
+            <a class="cardapios" href="./Html/cardapios.html">Cardápios</a>
+            <a class="promocoes" href="./Html/promocoes.html">Promoções</a>
+            <a class="ajuda" href="#atendimento">Ajuda</a>
         </nav>
 
         <div class="header-actions">
@@ -40,7 +41,7 @@
             </a>
 
 
-            <a class="cart-icon-wrapper" href="#" aria-label="Carrinho">
+            <a class="cart-icon-wrapper" id="carrinho" href="./Html/carrinho.html" aria-label="Carrinho">
                 <img class="cart-icon" src="./Img-pagina-inicial/Carrinho-icon2.png" alt="">
             </a>
         </div>
@@ -59,12 +60,12 @@
                 <p class="hero-subtitle">Sabor, qualidade tradição japonesa <br> com praticidade que você merece</p>
 
                 <div class="hero-buttons">
-                    <a href="#" class="btn btn-primary">
+                    <a href="./Html/cardapios.html#vitrine" class="btn btn-primary">
                         <img src="./Img-pagina-inicial/Sacolinha-icon.png" alt="">
                         Pedir agora
                         <span class="chevron-primario chevron-btn">›</span>
                     </a>
-                    <a href="#" class="btn btn-secondary">
+                    <a href="./Html/cardapios.html" class="btn btn-secondary">
                         <img src="./Img-pagina-inicial/Notas-icon.png" alt="">
                         Ver cardápios
                     </a>
@@ -153,13 +154,13 @@
             <div class="footer-links">
                 <h4>Navegação</h4>
                 <a href="#">Início</a>
-                <a href="#">Cardápios</a>
-                <a href="#">Promoções</a>
+                <a href="./Html/cardapios.html">Cardápios</a>
+                <a href="./Html/promocoes.html">Promoções</a>
                 <a href="#">Ajuda</a>
                 <a href="#">Seja um entregador</a>
             </div>
 
-            <div class="footer-links">
+            <div class="footer-links" id="atendimento">
                 <h4>Atendimento</h4>
                 <a href="#">Fale conosco</a>
                 <a href="#">Perguntas frequentes</a>
@@ -183,6 +184,21 @@
         </div>
     </footer>
     
+    <dialog class="recuperar-senha" id="recuperar-senha" aria-labelledby="recuperar-titulo" aria-describedby="recuperar-descricao">
+        <button class="recuperar-fechar" type="button" aria-label="Fechar recuperação" data-fechar-recuperacao>&times;</button>
+        <img class="recuperar-logo" src="./Img-pagina-inicial/Logo-Login.png" alt="Hashi">
+        <h2 id="recuperar-titulo">Recuperar senha</h2>
+        <p id="recuperar-descricao">Informe o e-mail que você usou para criar sua conta.</p>
+
+        <form class="recuperar-form">
+            <label for="recuperar-email">E-mail</label>
+            <input type="email" id="recuperar-email" placeholder="seuemail@exemplo.com" autocomplete="email" required autofocus>
+            <button class="recuperar-enviar" type="submit">Solicitar recuperação</button>
+            <p class="recuperar-status" role="status"></p>
+        </form>
+        <button class="recuperar-voltar" type="button" data-fechar-recuperacao>Voltar para o login</button>
+    </dialog>
+
     <!-- TELA DE LOGIN -->
     <div class="fundo-login" id="flex-login">
 
@@ -202,7 +218,7 @@
 
             <a class="Entrar-Button" href="#" id="btn-entrar">Entrar</a>
 
-            <a class="Senha-Esq" href="#">Esqueceu sua senha?</a>
+            <a class="Senha-Esq" href="#recuperar-senha" aria-haspopup="dialog">Esqueceu sua senha?</a>
 
             <div class="Nao-tem-uma-conta">
                 <p>
@@ -218,46 +234,82 @@
     
 
     <!-- TELA DE SELEÇÃO -->
-    <div class="fundo-selecao">
+    <dialog open class="selecao" id="tela-selecao" aria-labelledby="titulo-selecao" aria-describedby="descricao-selecao">
+        <form method="dialog">
+            <button class="selecao-fechar" type="submit" aria-label="Fechar seleção">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m5 5 14 14M19 5 5 19"/></svg>
+            </button>
+        </form>
 
-        <div class="selecao">
-
-            <div class="div-logos">
-                <img class="logo-selecao-logo" src="./Img-pagina-inicial/Logo-Site.png" alt="Logo">
-                <img class="logo-selecao-escrita" src="./Img-pagina-inicial/Logo-hashi.png" alt="Hashi">
-            </div>
-
-            <h2>Criar sua conta</h2>
-            <p>Escolha como você deseja usar o Hashi</p>
-            
-            <div class="div-botoes">
-                <div class="fundo-div-selecao">
-                    <img src="./Img-pagina-inicial/icone-cliente.png" alt="">
-                </div>
-
-                <div class="fundo-div-selecao">
-
-                </div>
-
-                <div class="fundo-div-selecao">
-
-                </div>
-            </div>
-
+        <div class="selecao-logos">
+            <img class="logo-selecao-logo" src="./Img-pagina-inicial/Logo-Site.png" alt="">
+            <img class="logo-selecao-escrita" src="./Img-pagina-inicial/Logo-hashi.png" alt="Hashi">
         </div>
 
-    </div>
+        <h2 id="titulo-selecao">Criar sua conta</h2>
+        <p class="selecao-descricao" id="descricao-selecao">Escolha como você deseja usar o Hashi</p>
 
+        <div class="selecao-form">
+            <fieldset class="selecao-opcoes" aria-label="Tipo de conta">
+                <label class="selecao-opcao">
+                    <input type="radio" name="perfil" value="cliente" aria-labelledby="perfil-cliente" checked>
+                    <span class="selecao-card">
+                        <svg class="selecao-icone" viewBox="0 0 48 48" aria-hidden="true">
+                            <circle cx="24" cy="15" r="9"/><path d="M8 41v-4a8 8 0 0 1 8-8h16a8 8 0 0 1 8 8v4Z"/>
+                        </svg>
+                        <strong id="perfil-cliente">Cliente</strong>
+                        <span>Faça pedidos e aproveite nossas delícias</span>
+                    </span>
+                </label>
+
+                <label class="selecao-opcao">
+                    <input type="radio" name="perfil" value="loja" aria-labelledby="perfil-loja">
+                    <span class="selecao-card">
+                        <svg class="selecao-icone" viewBox="0 0 48 48" aria-hidden="true">
+                            <path d="M4 18 10 6h28l6 12v3a5 5 0 0 1-10 0 5 5 0 0 1-10 0 5 5 0 0 1-10 0 5 5 0 0 1-10 0Zm0 0h40M17 6l-3 12m10-12v12m7-12 3 12M8 26v15h32V26M20 41V30h8v11"/>
+                        </svg>
+                        <strong id="perfil-loja">Loja</strong>
+                        <span>Gerencie sua loja com a gente</span>
+                    </span>
+                </label>
+
+                <label class="selecao-opcao">
+                    <input type="radio" name="perfil" value="entregador" aria-labelledby="perfil-entregador">
+                    <span class="selecao-card">
+                        <svg class="selecao-icone" viewBox="0 0 48 48" aria-hidden="true">
+                            <circle cx="10" cy="37" r="5"/><circle cx="37" cy="37" r="5"/>
+                            <path d="M2 37v-5a7 7 0 0 1 7-7h13m-7 12h13l5-14-3-10h6m-3 10h3a8 8 0 0 1 8 8v6h-2M7 25v-6h13v6m4-10 1-5 6-3m-7 8 5 2-3 11h-6"/>
+                            <circle cx="33" cy="7" r="4"/>
+                        </svg>
+                        <strong id="perfil-entregador">Entregador</strong>
+                        <span>Entregue e ganhe com o Hashi</span>
+                    </span>
+                </label>
+            </fieldset>
+
+            <div class="selecao-divisor" aria-hidden="true">
+                <img src="./Img-pagina-inicial/Mini-sushi.png" alt="">
+            </div>
+
+            <button class="selecao-continuar" type="button">
+                Continuar
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+            </button>
+        </div>
+
+        <p class="selecao-login">Já tem uma conta? <button type="button" id="selecao-voltar-login">Entrar</button></p>
+    </dialog>
 
 
     <!-- TELA DE CADASTRO -->
-    <div class="fundo-cadastro">
+    <div class="fundo-cadastro" id="cadastro-cliente">
     
         <div class="cadastro">
     
             <button class="fechar-cadastro">&#10005;</button>
     
-            <h2>Criar sua conta</h2>
+            <h2>Cadastro de cliente</h2>
+            <button class="trocar-perfil" type="button" data-voltar-selecao>Trocar tipo de conta</button>
     
             
     
@@ -285,9 +337,18 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 3c1 3 1.5 5 3 6-1 2-1.5 2.5-1 4 1.5 3 4 5.5 7 7 1.5.5 2 0 4-1 1-1.5 3-1 6 3 .7 1.2 0 3-1.2 4-8.5 1-16-6.5-15-15C4 5.2 4.8 4.5 6 3z"/></svg>
                     Telefone
                 </label>
-                <input type="text" placeholder="(00) 00000-0000">
+                <input type="tel" placeholder="(00) 00000-0000">
             </div>
     
+            <div class="Caixa">
+                <span class="indicator"></span>
+                <label class="Icons-representativos" for="cliente-endereco">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 10l9-7 9 7v10H3zM9 20v-6h6v6"/></svg>
+                    Endereço de entrega
+                </label>
+                <input id="cliente-endereco" type="text" autocomplete="street-address" placeholder="Rua, número, bairro e cidade">
+            </div>
+
             <div class="Caixa">
                 <span class="indicator"></span>
                 <label class="Icons-representativos">
@@ -317,20 +378,66 @@
     
     </div>
 
+    <!-- TELA DE CADASTRO DE LOJA -->
+    <dialog class="cadastro cadastro-loja" id="cadastro-loja" aria-labelledby="titulo-cadastro-loja">
+        <form method="dialog">
+            <button class="fechar-cadastro" type="submit" aria-label="Fechar cadastro de loja">&#10005;</button>
+        </form>
+        <h2 id="titulo-cadastro-loja">Cadastro de loja</h2>
+        <button class="trocar-perfil" type="button" data-voltar-selecao>Trocar tipo de conta</button>
+
+        <div class="Caixa">
+            <span class="indicator"></span>
+            <label for="loja-nome">Nome da loja</label>
+            <input id="loja-nome" type="text" autocomplete="organization" placeholder="Nome do restaurante">
+        </div>
+        <div class="Caixa">
+            <span class="indicator"></span>
+            <label for="loja-cnpj">CNPJ</label>
+            <input id="loja-cnpj" type="text" inputmode="numeric" placeholder="00.000.000/0000-00">
+        </div>
+        <div class="Caixa">
+            <span class="indicator"></span>
+            <label for="loja-responsavel">Nome do responsável</label>
+            <input id="loja-responsavel" type="text" autocomplete="name" placeholder="Nome completo">
+        </div>
+        <div class="Caixa">
+            <span class="indicator"></span>
+            <label for="loja-email">E-mail comercial</label>
+            <input id="loja-email" type="email" autocomplete="email" placeholder="contato@restaurante.com.br">
+        </div>
+        <div class="Caixa">
+            <span class="indicator"></span>
+            <label for="loja-telefone">Telefone comercial</label>
+            <input id="loja-telefone" type="tel" autocomplete="tel" placeholder="(00) 00000-0000">
+        </div>
+        <div class="Caixa">
+            <span class="indicator"></span>
+            <label for="loja-endereco">Endereço da loja</label>
+            <input id="loja-endereco" type="text" autocomplete="street-address" placeholder="Rua, número, bairro e cidade">
+        </div>
+        <div class="Caixa">
+            <span class="indicator"></span>
+            <label for="loja-senha">Senha</label>
+            <input id="loja-senha" type="password" autocomplete="new-password" placeholder="Crie uma senha">
+        </div>
+        <label class="termos">
+            <input type="checkbox">
+            Li e concordo com os Termos de Uso
+        </label>
+        <button class="btn-cadastrar" type="button" disabled>Cadastrar loja</button>
+    </dialog>
+
     <!-- TELA DE CADASTRO 2 -->
-    <div class="fundo-cadastro2">
+    <div class="fundo-cadastro2" id="cadastro-entregador">
     
         <div class="cadastro2">
     
             <button class="fechar-cadastro2">&#10005;</button>
     
-            <h2>Criar sua conta</h2>
-    
-            <div class="Cadastro-selecao-button2">
-                <a class="cliente-button2" href="#" onclick="selecionarTipo2(this)">Cliente</a>
-                <a class="entregador-button2 ativo2" href="#" onclick="selecionarTipo2(this)">Entregador</a>
-            </div>
-    
+            <h2>Cadastro de entregador</h2>
+            <button class="trocar-perfil" type="button" data-voltar-selecao>Trocar tipo de conta</button>
+
             <div class="Caixa2">
                 <span class="indicator2"></span>
                 <label class="Icons-representativos2">
@@ -405,11 +512,15 @@
     
     </div>
 <!--
+Contas de teste do Hashi (e-mail / senha)
 Cliente: cliente@hashi.com / 123456
 Entregador: entregador@hashi.com / 123456
+Loja: loja@hashi.com / 123456
  -->
 
 
     <script src="./JavaScript/minha-conta.js"></script>
+    <script src="./JavaScript/cabecalho-conta.js"></script>
+    <script src="./JavaScript/carrinho.js"></script>
 </body>
 </html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../Logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/cardapios.css">
+    <link rel="stylesheet" href="../css/carrinho.css">
+    <title>Cardápios | Hashi Entregador</title>
+</head>
+<body data-painel-perfil="entregador" class="pagina-cardapio">
+    <header>
+        <div class="logo-group">
+            <img class="hashi-header" src="../Img-pagina-inicial/Logo-Site.png" alt="Logo Hashi na cor branca">
+            <img class="hashi-header-logo" src="../Img-pagina-inicial/Logo-hashi.png" alt="Logo Hashi na cor branca versão escrita">
+        </div>
+
+        <nav class="nav-links">
+            <a data-inicio-hashi href="index-entregador.html">Início</a>
+            <a class="cardapios" href="cardapios-entregador.html" aria-current="page">Cardápios</a>
+            <a class="promocoes" href="promocoes-entregador.html">Promoções</a>
+            <a class="ajuda" href="#atendimento">Ajuda</a>
+            <a class="entregador" href="painel-entregador.html">Entregador</a>
+        </nav>
+
+        <div class="header-actions">
+            <img class="lupa" src="../Img-pagina-inicial/Lupa.png" alt="Lupa de pesquisa">
+
+
+            <a class="conta-buttom" href="painel-entregador.html#minha-area">
+                <svg class="conta-icon" viewBox="3 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.6"/>
+                    <path d="M5 19c1.2-3.2 4-5 7-5s5.8 1.8 7 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                </svg>
+                Minha conta
+            </a>
+
+
+            <a class="cart-icon-wrapper" href="carrinho-entregador.html" aria-label="Carrinho">
+                <img class="cart-icon" src="../Img-pagina-inicial/Carrinho-icon2.png" alt="">
+            </a>
+        </div>
+    </header>
+
+    <!-- Divisor separado do header -->
+    <div class="header-divider" role="presentation"></div>
+
+    <main class="menu-pagina">
+        <!-- CARROSSEL DE DESTAQUES -->
+        <section class="menu-banner" aria-label="Destaques do cardápio" aria-roledescription="carrossel" data-destaques>
+            <div class="menu-banner-slides" aria-live="off">
+                <article class="menu-banner-slide" data-destaque role="group" aria-roledescription="slide" aria-label="1 de 3">
+                    <div class="menu-banner-conteudo">
+                        <h1>Sushi Show</h1>
+                        <p class="menu-banner-descricao">Culin&#225;ria japonesa em Uberl&#226;ndia</p>
+                        <a class="menu-banner-link" href="#vitrine" data-menu-categoria="destaques">Ver cardápio <span aria-hidden="true">→</span></a>
+                    </div>
+                    <img class="menu-banner-foto" src="../Img-pagina-inicial/Prato-Sushi-principal.png" alt="Seleção de sushi servida em um prato">
+                </article>
+                <article class="menu-banner-slide menu-destaque-combo" data-destaque role="group" aria-roledescription="slide" aria-label="2 de 3" hidden>
+                    <div class="menu-banner-conteudo">
+                        <h2>Combo especial</h2>
+                        <p class="menu-banner-descricao">30 peças variadas por R$ 99,99.</p>
+                        <a class="menu-banner-link" href="#vitrine" data-menu-categoria="combos">Ver combos <span aria-hidden="true">→</span></a>
+                    </div>
+                    <img class="menu-banner-foto" src="../Img-pagina-inicial/Prato-Sushi-principal.png" alt="">
+                </article>
+                <article class="menu-banner-slide menu-destaque-sushi" data-destaque role="group" aria-roledescription="slide" aria-label="3 de 3" hidden>
+                    <div class="menu-banner-conteudo">
+                        <h2>Sushis de salmão</h2>
+                        <p class="menu-banner-descricao">Confira o sushi de salmão e o uramaki Philadelphia.</p>
+                        <a class="menu-banner-link" href="#vitrine" data-menu-categoria="sushis">Ver sushis <span aria-hidden="true">→</span></a>
+                    </div>
+                    <img class="menu-banner-foto" src="../Img-pagina-inicial/Prato-Sushi-principal.png" alt="">
+                </article>
+            </div>
+            <div class="menu-banner-controles" data-destaque-controles hidden>
+                <div class="menu-banner-indicadores" role="group" aria-label="Escolher destaque">
+                    <button type="button" data-indice-destaque="0" aria-label="Sushi Show" aria-current="true"></button>
+                    <button type="button" data-indice-destaque="1" aria-label="Combo especial"></button>
+                    <button type="button" data-indice-destaque="2" aria-label="Sushis de salm&#227;o"></button>
+                </div>
+                <div class="menu-banner-navegacao">
+                    <button type="button" data-anterior aria-label="Destaque anterior"><span aria-hidden="true"></span></button>
+                    <button type="button" data-rotacao data-reproduzindo aria-label="Pausar carrossel"><span aria-hidden="true"></span></button>
+                    <button type="button" data-proximo aria-label="Pr&#243;ximo destaque"><span aria-hidden="true"></span></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PRODUTOS DO CARDÁPIO -->
+        <section class="menu-vitrine" id="vitrine" aria-labelledby="titulo-vitrine">
+            <h2 id="titulo-vitrine">Escolha seu favorito</h2>
+            <fieldset class="menu-filtros" aria-label="Categorias do cardápio">
+                <label class="menu-filtro">
+                    <input type="radio" name="categoria-cardapio" value="destaques" checked>
+                    <span>Destaques</span>
+                </label>
+                <label class="menu-filtro">
+                    <input type="radio" name="categoria-cardapio" value="combos">
+                    <span>Combos</span>
+                </label>
+                <label class="menu-filtro">
+                    <input type="radio" name="categoria-cardapio" value="sushis">
+                    <span>Sushis</span>
+                </label>
+                <label class="menu-filtro">
+                    <input type="radio" name="categoria-cardapio" value="temakis">
+                    <span>Temakis</span>
+                </label>
+                <label class="menu-filtro">
+                    <input type="radio" name="categoria-cardapio" value="hot-rolls">
+                    <span>Hot Rolls</span>
+                </label>
+                <label class="menu-filtro">
+                    <input type="radio" name="categoria-cardapio" value="sobremesas">
+                    <span>Sobremesas</span>
+                </label>
+            </fieldset>
+            <div class="menu-grade">
+                <article class="menu-card menu-card-destaque" data-categoria="combos">
+                    <div class="menu-card-imagem menu-card-foto">
+                        <span class="menu-mais-vendido">Mais vendido</span>
+                        <img src="../Img-pagina-inicial/Prato-Sushi-principal.png" alt="">
+                    </div>
+                    <div class="menu-card-info">
+                        <h3>Combo especial</h3>
+                        <p>30 peças variadas</p>
+                        <span class="menu-preco">R$ 99,99</span>
+                        <button class="carrinho-primario" type="button" data-adicionar="1" aria-label="Adicionar Combo especial ao carrinho">Adicionar</button>
+                    </div>
+                </article>
+                <article class="menu-card" data-categoria="sushis">
+                    <div class="menu-card-imagem">
+                        <img src="../Img-pagina-inicial/Mini-sushi.png" alt="">
+                    </div>
+                    <div class="menu-card-info">
+                        <h3>Sushi de salmão</h3>
+                        <p>8 peças de salmão</p>
+                        <span class="menu-preco">R$ 34,90</span>
+                        <button class="carrinho-primario" type="button" data-adicionar="2" aria-label="Adicionar Sushi de salmão ao carrinho">Adicionar</button>
+                    </div>
+                </article>
+                <article class="menu-card" data-categoria="temakis">
+                    <div class="menu-card-imagem">
+                        <img src="../Img-pagina-inicial/Mini-sushi.png" alt="">
+                    </div>
+                    <div class="menu-card-info">
+                        <h3>Temaki de salmão</h3>
+                        <p>Salmão, arroz e cebolinha</p>
+                        <span class="menu-preco">R$ 36,90</span>
+                        <button class="carrinho-primario" type="button" data-adicionar="3" aria-label="Adicionar Temaki de salmão ao carrinho">Adicionar</button>
+                    </div>
+                </article>
+                <article class="menu-card" data-categoria="hot-rolls">
+                    <div class="menu-card-imagem">
+                        <img src="../Img-pagina-inicial/Mini-sushi.png" alt="">
+                    </div>
+                    <div class="menu-card-info">
+                        <h3>Hot roll crocante</h3>
+                        <p>10 peças com cream cheese</p>
+                        <span class="menu-preco">R$ 32,90</span>
+                        <button class="carrinho-primario" type="button" data-adicionar="4" aria-label="Adicionar Hot roll crocante ao carrinho">Adicionar</button>
+                    </div>
+                </article>
+                <article class="menu-card" data-categoria="combos">
+                    <div class="menu-card-imagem">
+                        <img src="../Img-pagina-inicial/Mini-sushi.png" alt="">
+                    </div>
+                    <div class="menu-card-info">
+                        <h3>Combo clássico</h3>
+                        <p>20 peças selecionadas</p>
+                        <span class="menu-preco">R$ 69,90</span>
+                        <button class="carrinho-primario" type="button" data-adicionar="5" aria-label="Adicionar Combo clássico ao carrinho">Adicionar</button>
+                    </div>
+                </article>
+                <article class="menu-card" data-categoria="sushis">
+                    <div class="menu-card-imagem">
+                        <img src="../Img-pagina-inicial/Mini-sushi.png" alt="">
+                    </div>
+                    <div class="menu-card-info">
+                        <h3>Uramaki Philadelphia</h3>
+                        <p>8 peças com salmão e cream cheese</p>
+                        <span class="menu-preco">R$ 29,90</span>
+                        <button class="carrinho-primario" type="button" data-adicionar="6" aria-label="Adicionar Uramaki Philadelphia ao carrinho">Adicionar</button>
+                    </div>
+                </article>
+                <article class="menu-card" data-categoria="sobremesas">
+                    <div class="menu-card-imagem">
+                        <img src="../Img-pagina-inicial/Mini-sushi.png" alt="">
+                    </div>
+                    <div class="menu-card-info">
+                        <h3>Mochi de morango</h3>
+                        <p>2 unidades</p>
+                        <span class="menu-preco">R$ 18,90</span>
+                        <button class="carrinho-primario" type="button" data-adicionar="7" aria-label="Adicionar Mochi de morango ao carrinho">Adicionar</button>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-top">
+
+            <div class="footer-brand">
+                <div class="logo-group">
+                    <img class="hashi-header" src="../Img-pagina-inicial/Logo-Site.png" alt="Logo Hashi">
+                    <img class="hashi-header-logo" src="../Img-pagina-inicial/Logo-hashi.png" alt="Hashi">
+                </div>
+                <p class="footer-tagline">Sabor, tradição e excelência da culinária japonesa, direto na porta da sua casa.</p>
+
+                <div class="footer-social">
+                    <a href="#" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="1.6"/>
+                            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.6"/>
+                            <circle cx="17.2" cy="6.8" r="1" fill="currentColor"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Facebook">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 9h2.5V6H14c-2 0-3.5 1.6-3.5 3.5V11H8v3h2.5v6h3v-6H16l.5-3h-3V9.6c0-.4.3-.6.5-.6Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="WhatsApp">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="1.4"/>
+                            <path d="M8.5 8.7c.2-.4.6-.4.9-.4h.6c.2 0 .5 0 .7.5.2.6.7 1.8.8 2 .1.2.1.4 0 .6-.1.3-.2.4-.4.6-.2.2-.4.4-.2.7.6 1 1.6 2 3 2.5.3.1.4 0 .6-.2.2-.2.7-.8 1-1 .2-.2.4-.2.6-.1.3.1 1.7.8 2 .9.3.1.5.2.5.4 0 .2 0 1-.4 1.5-.4.6-1.8 1-2.4 1-1.4.1-2.9-.5-4.6-1.9-2.1-1.6-3.3-3.6-3.5-4-.2-.4-1.3-2-1.1-3.7.1-.7.6-1.2.8-1.4Z" fill="currentColor"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <h4>Navegação</h4>
+                <a data-inicio-hashi href="index-entregador.html">Início</a>
+                <a href="cardapios-entregador.html">Cardápios</a>
+                <a href="promocoes-entregador.html">Promoções</a>
+                <a href="#atendimento">Ajuda</a>
+                <a href="entregador.html">Seja um entregador</a>
+            </div>
+
+            <div class="footer-links" id="atendimento">
+                <h4>Atendimento</h4>
+                <a href="#">Fale conosco</a>
+                <a href="#">Perguntas frequentes</a>
+                <a href="#">Trocas e devoluções</a>
+                <a href="#">Política de privacidade</a>
+            </div>
+
+            <div class="footer-contact">
+                <h4>Contato</h4>
+                <p>Atendemos em todo Brasil</p>
+                <p>(34) 99898-9966</p>
+                <p>contato@hashi.com.br</p>
+                <p class="footer-hours">24 horas por dia com entregadores <br> ao seu dispor</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Hashi. Todos os direitos reservados.</p>
+            <p>Feito com <span class="footer-heart">♥</span> e muito wasabi.</p>
+        </div>
+    </footer>
+    <script src="../JavaScript/destaques-cardapio.js"></script>
+    <script src="../JavaScript/cabecalho-conta.js"></script>
+    <script src="../JavaScript/carrinho.js"></script>
+</body>
+</html>

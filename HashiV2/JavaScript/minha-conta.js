@@ -13,11 +13,59 @@ const voltarParaLogin = document.getElementById("voltar-login");
 const voltarParaLogin2 = document.getElementById("voltar-login2");
 
 
+
+const telaSelecao = document.getElementById("tela-selecao");
+
+if (telaSelecao) {
+    const cadastroLoja = document.getElementById("cadastro-loja");
+    const cadastrosPorPerfil = {
+        cliente: cadastroOverlay,
+        entregador: cadastro2Overlay,
+        loja: cadastroLoja
+    };
+
+    telaSelecao.querySelector(".selecao-continuar").addEventListener("click", function () {
+        const perfil = telaSelecao.querySelector("input[name='perfil']:checked").value;
+        const cadastro = cadastrosPorPerfil[perfil];
+
+        telaSelecao.close();
+        if (cadastro === cadastroLoja) {
+            cadastroLoja.showModal();
+        } else {
+            cadastro.style.display = "flex";
+        }
+        cadastro.querySelector("input").focus();
+    });
+
+    document.querySelectorAll("[data-voltar-selecao]").forEach(function (botao) {
+        botao.addEventListener("click", function () {
+            const cadastro = botao.closest(".fundo-cadastro, .fundo-cadastro2, .cadastro-loja");
+            if (cadastro === cadastroLoja) {
+                cadastroLoja.close();
+            } else {
+                cadastro.style.display = "none";
+            }
+            telaSelecao.show();
+            telaSelecao.querySelector("input[name='perfil']:checked").focus();
+        });
+    });
+
+    document.getElementById("selecao-voltar-login").addEventListener("click", function () {
+        telaSelecao.close();
+        loginOverlay.style.display = "flex";
+        document.getElementById("email").focus();
+    });
+}
+
+
 // ABRIR / FECHAR MODAL DE LOGIN
 
 if (abrirLogin) {
     abrirLogin.addEventListener("click", function (event) {
         event.preventDefault();
+        if (telaSelecao?.open) {
+            telaSelecao.close();
+        }
         loginOverlay.style.display = "flex";
     });
 }
@@ -31,13 +79,58 @@ if (loginOverlay) {
 }
 
 
+// RECUPERAÇÃO DE SENHA
+
+const dialogoRecuperacao = document.getElementById("recuperar-senha");
+
+if (dialogoRecuperacao && loginOverlay) {
+    const abrirRecuperacao = loginOverlay.querySelector(".Senha-Esq");
+    const formularioRecuperacao = dialogoRecuperacao.querySelector(".recuperar-form");
+    const campoRecuperacao = document.getElementById("recuperar-email");
+    const statusRecuperacao = dialogoRecuperacao.querySelector(".recuperar-status");
+
+    abrirRecuperacao.addEventListener("click", function (event) {
+        event.preventDefault();
+        campoRecuperacao.value = document.getElementById("email").value.trim();
+        statusRecuperacao.textContent = "";
+        loginOverlay.style.display = "none";
+        dialogoRecuperacao.showModal();
+    });
+
+    dialogoRecuperacao.querySelectorAll("[data-fechar-recuperacao]").forEach(function (botao) {
+        botao.addEventListener("click", function () {
+            dialogoRecuperacao.close();
+        });
+    });
+
+    dialogoRecuperacao.addEventListener("close", function () {
+        loginOverlay.style.display = "flex";
+        abrirRecuperacao.focus();
+    });
+
+    formularioRecuperacao.addEventListener("submit", function (event) {
+        event.preventDefault();
+        statusRecuperacao.textContent = "O envio de links de recuperação por e-mail ainda não está disponível neste protótipo.";
+    });
+
+    campoRecuperacao.addEventListener("input", function () {
+        statusRecuperacao.textContent = "";
+    });
+}
+
+
 // ABRIR CADASTRO (a partir do link "Cadastrar-se" no login)
 
 if (abrirCadastro) {
     abrirCadastro.addEventListener("click", function (event) {
         event.preventDefault();
         loginOverlay.style.display = "none";
-        cadastroOverlay.style.display = "flex";
+        if (telaSelecao) {
+            telaSelecao.show();
+            telaSelecao.querySelector("input[name='perfil']:checked").focus();
+        } else {
+            cadastroOverlay.style.display = "flex";
+        }
     });
 }
 
@@ -156,6 +249,8 @@ function emailJaExiste(email) {
 
 
 // CONTAS DE DEMONSTRAÇÃO
+// Login no prototipo: cliente@hashi.com, entregador@hashi.com ou loja@hashi.com.
+// Senha das tres contas de teste: 123456.
 
 function seedContasDemo() {
     const usuarios = pegarUsuarios();
@@ -185,6 +280,15 @@ function seedContasDemo() {
         });
     }
 
+    if (!usuarios.some(u => u.email === "loja@hashi.com")) {
+        usuarios.push({
+            nome: "Loja Demo",
+            email: "loja@hashi.com",
+            senha: "123456",
+            tipo: "loja"
+        });
+    }
+
     salvarUsuarios(usuarios);
 }
 
@@ -204,10 +308,12 @@ if (btnCadastrarCliente) {
         const nome = campos[0].value.trim();
         const email = campos[1].value.trim();
         const telefone = campos[2].value.trim();
+        const campoEndereco = formCadastroCliente.querySelector("#cliente-endereco");
+        const endereco = campoEndereco?.value.trim();
         const senha = document.getElementById("campo-senha").value;
         const aceitouTermos = formCadastroCliente.querySelector(".termos input[type='checkbox']").checked;
 
-        if (!nome || !email || !telefone || !senha) {
+        if (!nome || !email || !telefone || !senha || (campoEndereco && !endereco)) {
             alert("Preencha todos os campos antes de continuar.");
             return;
         }
@@ -223,7 +329,7 @@ if (btnCadastrarCliente) {
         }
 
         const usuarios = pegarUsuarios();
-        usuarios.push({ nome, email, telefone, senha, tipo: "cliente" });
+        usuarios.push({ nome, email, telefone, endereco, senha, tipo: "cliente" });
         salvarUsuarios(usuarios);
 
         alert("Conta de Cliente criada com sucesso! Faça login para continuar.");
@@ -303,12 +409,9 @@ if (btnEntrar) {
         }
 
         // guarda quem está logado, pra ser lido na página de painel
-        localStorage.setItem("usuarioLogadoHashi", JSON.stringify(usuario));
+        const { nome, tipo } = usuario;
+        localStorage.setItem("usuarioLogadoHashi", JSON.stringify({ nome, tipo, email: usuario.email }));
 
-        if (usuario.tipo === "cliente") {
-            window.location.href = "index.html";
-        } else {
-            window.location.href = "Html/entregador.html";
-        }
+        window.location.href = destinoPerfilHashi(tipo);
     });
 }

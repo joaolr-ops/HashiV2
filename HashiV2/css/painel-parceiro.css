@@ -1,0 +1,83 @@
+@font-face {
+    font-family: "Montserrat Painel";
+    src: url("../Font/Montserrat/Montserrat-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
+
+/* ===== ÁREA DA CONTA ===== */
+.painel-atividade {
+    width: min(100%, 1440px);
+    margin: clamp(24px, 4vw, 48px) auto;
+    padding: 0 clamp(18px, 4.8vw, 60px);
+    scroll-margin-top: 20px;
+}
+
+.painel-area-topo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-bottom: 1px solid var(--hashi-contorno-vermelho);
+    padding-bottom: 14px;
+}
+
+.painel-area-topo h2,
+.painel-card h3 {
+    font-family: "Montserrat Painel", Arial, sans-serif;
+}
+
+.painel-area-topo h2 {
+    font-size: clamp(23px, 3.5vw, 35px);
+}
+
+.painel-area-topo p,
+.painel-card p {
+    margin-top: 7px;
+    color: var(--hashi-texto-secundario);
+    line-height: 1.45;
+}
+
+.painel-sair {
+    min-height: 36px;
+    padding: 6px 11px;
+    border: 1px solid var(--hashi-contorno-forte);
+    border-radius: 8px;
+    background: var(--hashi-superficie-quente-hover);
+    color: var(--hashi-texto);
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.painel-sair:hover {
+    background: var(--hashi-vermelho-escuro);
+}
+
+.painel-sair:focus-visible {
+    outline: 2px solid var(--hashi-foco);
+    outline-offset: 4px;
+}
+
+/* ===== CARTÕES DA CONTA ===== */
+.painel-grade {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 15px;
+}
+
+.painel-card {
+    min-height: 106px;
+    padding: 17px;
+    border: 1px solid var(--hashi-contorno);
+    border-radius: 13px;
+    background: var(--hashi-superficie);
+}
+
+@media (max-width: 480px) {
+    .painel-grade {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}

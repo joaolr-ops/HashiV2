@@ -1,0 +1,394 @@
+@font-face {
+    font-family: "Montserrat Hashi";
+    src: url("../Font/Montserrat/Montserrat-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-display: swap;
+}
+
+.pagina-promocoes .nav-links [aria-current="page"] {
+    color: var(--hashi-vermelho);
+    border-bottom: 2px solid var(--hashi-vermelho);
+}
+
+.promo-pagina {
+    width: min(100%, 1500px);
+    margin: auto;
+    padding: clamp(22px, 3.5vw, 44px) clamp(16px, 4.8vw, 60px) 64px;
+    font-family: "Open Sans", Arial, sans-serif;
+}
+
+.promo-pagina :is(h1, h2, h3) {
+    font-family: "Montserrat Hashi", Arial, sans-serif;
+    line-height: 1.12;
+}
+
+/* ===== ABERTURA ===== */
+.promo-abertura {
+    display: grid;
+    grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);
+    align-items: center;
+    gap: clamp(20px, 4vw, 60px);
+}
+
+.promo-intro h1 {
+    max-width: 15ch;
+    font-size: clamp(31px, 4.1vw, 58px);
+    letter-spacing: -.045em;
+}
+
+.promo-intro h1 span,
+.promo-slide h2 span {
+    color: var(--hashi-vermelho);
+}
+
+.promo-intro > p,
+.promo-condicoes p {
+    margin-top: 14px;
+    max-width: 46ch;
+    color: var(--hashi-texto-secundario);
+    line-height: 1.5;
+}
+
+.promo-acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.promo-botao {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 41px;
+    padding: 7px 13px;
+    border: 1px solid var(--hashi-contorno-vermelho);
+    border-radius: 8px;
+    background: var(--hashi-vermelho);
+    color: var(--hashi-texto);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.promo-botao:hover {
+    background: var(--hashi-vermelho-hover);
+}
+
+.promo-botao-secundario {
+    border-color: var(--hashi-contorno);
+    background: var(--hashi-superficie);
+}
+
+.promo-botao-secundario:hover {
+    background: var(--hashi-superficie-quente-hover);
+}
+
+/* ===== CARROSSEL DE OFERTAS ===== */
+.promo-carrossel {
+    --banner-recuo: 17px;
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    border: 1px solid var(--hashi-contorno-vermelho);
+    border-radius: 18px;
+    background: radial-gradient(ellipse at right, var(--hashi-superficie-quente-forte), var(--hashi-superficie) 68%);
+}
+
+.promo-slide {
+    grid-template-columns: minmax(0, 1fr) minmax(0, .85fr);
+    gap: 5px;
+    min-height: 265px;
+    padding: 20px 14px 48px 19px;
+}
+
+.promo-slide-texto {
+    position: relative;
+    z-index: 1;
+}
+
+.promo-slide-marca {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px 8px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.promo-etiqueta {
+    display: inline-block;
+    width: fit-content;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: var(--hashi-vermelho-escuro);
+    color: var(--hashi-texto);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.promo-slide h2 {
+    margin-top: 10px;
+    font-size: clamp(23px, 3vw, 40px);
+}
+
+.promo-slide h2 span {
+    display: block;
+}
+
+.promo-slide h2 + p {
+    margin-top: 8px;
+    color: var(--hashi-texto);
+    line-height: 1.35;
+}
+
+.promo-slide .promo-botao {
+    margin-top: 13px;
+}
+
+.promo-slide-imagem {
+    width: 100%;
+    height: clamp(115px, 19vw, 240px);
+    object-fit: contain;
+    transform: scale(1.13);
+    filter: drop-shadow(0 8px 12px #0008);
+}
+
+.promo-slide-frete .promo-slide-imagem {
+    width: min(100%, 135px);
+    justify-self: center;
+    transform: none;
+}
+
+/* ===== OFERTAS E CONDIÇÕES ===== */
+.promo-ofertas,
+.promo-condicoes {
+    margin-top: clamp(28px, 4vw, 52px);
+    scroll-margin-top: 16px;
+}
+
+.promo-ofertas h2,
+.promo-condicoes h2 {
+    font-size: clamp(23px, 3vw, 36px);
+}
+
+.promo-nota {
+    margin-top: 7px;
+    color: var(--hashi-texto-secundario);
+    font-size: 13px;
+}
+
+.promo-grade {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin-top: 13px;
+}
+
+.promo-card {
+    position: relative;
+    isolation: isolate;
+    display: flex;
+    align-items: center;
+    min-height: 170px;
+    overflow: hidden;
+    padding: 14px;
+    border: 1px solid var(--hashi-contorno);
+    border-radius: 13px;
+    background: radial-gradient(ellipse at right, var(--hashi-superficie-quente), var(--hashi-superficie) 75%);
+}
+
+.promo-card-texto {
+    flex: 1;
+    min-width: 0;
+}
+
+.promo-card h3 {
+    margin-top: 9px;
+    font-size: 18px;
+}
+
+.promo-card h3 + p {
+    margin-top: 6px;
+    color: var(--hashi-texto-secundario);
+    font-size: 13px;
+    line-height: 1.35;
+}
+
+.promo-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: var(--hashi-vermelho);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.promo-card a:hover {
+    text-decoration: underline;
+}
+
+.promo-card img {
+    width: 44%;
+    object-fit: contain;
+}
+
+.promo-card-frete img {
+    width: 35%;
+    margin-left: 10px;
+}
+
+.promo-pagina a:focus-visible {
+    outline: 2px solid var(--hashi-foco);
+    outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+    .promo-abertura {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .promo-intro h1 {
+        max-width: 20ch;
+    }
+    .promo-slide-imagem {
+        height: clamp(130px, 28vw, 220px);
+    }
+    .promo-grade {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .pagina-promocoes .footer-top {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .pagina-promocoes .footer-bottom {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 520px) {
+    .promo-grade {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .promo-slide {
+        grid-template-columns: minmax(0, 1fr) minmax(0, .48fr);
+        gap: 5px;
+    }
+    .promo-slide-imagem {
+        transform: scale(1.2);
+    }
+    .promo-carrossel {
+        --banner-recuo: 11px;
+    }
+}
+
+/* ===== PROMOÇÕES DA SEMANA ===== */
+.promo-semana {
+    margin-top: clamp(26px, 3.2vw, 46px);
+    scroll-margin-top: 16px;
+}
+
+.promo-secao-topo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px 16px;
+}
+
+.promo-secao-topo a {
+    color: var(--hashi-texto);
+    font-size: 14px;
+    text-decoration: underline;
+    text-decoration-color: var(--hashi-vermelho);
+    text-underline-offset: 4px;
+}
+
+.promo-secao-topo a:hover {
+    color: var(--hashi-texto-suave);
+}
+
+.promo-semana h2 {
+    font-size: clamp(23px, 3vw, 36px);
+}
+
+.promo-semana h2::after,
+.promo-secao-topo h2::after {
+    display: block;
+    width: 36px;
+    height: 2px;
+    margin-top: 7px;
+    background: var(--hashi-vermelho);
+    content: "";
+}
+
+.promo-semana-grade {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+}
+
+.promo-semana-card {
+    display: grid;
+    grid-template-columns: 35px minmax(0, 1fr);
+    align-items: center;
+    gap: 9px;
+    min-height: 100px;
+    padding: 11px;
+    border: 1px solid var(--hashi-contorno-forte);
+    border-radius: 12px;
+    background: var(--hashi-superficie);
+}
+
+.promo-semana-icone {
+    display: grid;
+    place-items: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: var(--hashi-vermelho-escuro);
+}
+
+.promo-semana-icone img {
+    width: 23px;
+    height: 23px;
+    object-fit: contain;
+}
+
+.promo-semana-card h3 {
+    color: var(--hashi-texto);
+    font-size: 13px;
+}
+
+.promo-semana-card p {
+    margin-top: 5px;
+    color: var(--hashi-texto-secundario);
+    font-size: 12px;
+    line-height: 1.35;
+}
+
+.promo-semana-card:hover {
+    border-color: var(--hashi-vermelho);
+}
+
+@media (max-width: 1080px) {
+    .promo-semana-grade {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 720px) {
+    .promo-semana-grade {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 430px) {
+    .promo-semana-grade {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .promo-semana-card {
+        min-height: 76px;
+    }
+}

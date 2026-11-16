@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="../css/cadastro-cliente.css">
     <link rel="stylesheet" href="../css/cadastro-entregador.css">
+    <link rel="stylesheet" href="../css/carrinho.css">
     <title>Hashi</title>
 </head>
 <body>
@@ -20,9 +21,9 @@
         </div>
 
         <nav class="nav-links">
-            <a class="inicio" href="#">Início</a>
-            <a class="cardapios" href="#">Cardápios</a>
-            <a class="promocoes" href="#">Promoções</a>
+            <a class="inicio" data-inicio-hashi href="../index.html">Início</a>
+            <a class="cardapios" href="cardapios.html">Cardápios</a>
+            <a class="promocoes" href="promocoes.html">Promoções</a>
             <a class="ajuda" href="#">Ajuda</a>
             <a class="entregador" href="#">Entregador</a>
         </nav>
@@ -40,7 +41,7 @@
             </a>
 
 
-            <a class="cart-icon-wrapper" href="#" aria-label="Carrinho">
+            <a class="cart-icon-wrapper" href="carrinho.html" aria-label="Carrinho">
                 <img class="cart-icon" src="../Img-pagina-inicial/Carrinho-icon2.png" alt="">
             </a>
         </div>
@@ -152,14 +153,14 @@
 
             <div class="footer-links">
                 <h4>Navegação</h4>
-                <a href="#">Início</a>
+                <a data-inicio-hashi href="../index.html">Início</a>
                 <a href="#">Cardápios</a>
-                <a href="#">Promoções</a>
+                <a href="promocoes.html">Promoções</a>
                 <a href="#">Ajuda</a>
                 <a href="#">Seja um entregador</a>
             </div>
 
-            <div class="footer-links">
+            <div class="footer-links" id="atendimento">
                 <h4>Atendimento</h4>
                 <a href="#">Fale conosco</a>
                 <a href="#">Perguntas frequentes</a>
@@ -183,6 +184,21 @@
         </div>
     </footer>
     
+    <dialog class="recuperar-senha" id="recuperar-senha" aria-labelledby="recuperar-titulo" aria-describedby="recuperar-descricao">
+        <button class="recuperar-fechar" type="button" aria-label="Fechar recuperação" data-fechar-recuperacao>&times;</button>
+        <img class="recuperar-logo" src="../Img-pagina-inicial/Logo-Login.png" alt="Hashi">
+        <h2 id="recuperar-titulo">Recuperar senha</h2>
+        <p id="recuperar-descricao">Informe o e-mail que você usou para criar sua conta.</p>
+
+        <form class="recuperar-form">
+            <label for="recuperar-email">E-mail</label>
+            <input type="email" id="recuperar-email" placeholder="seuemail@exemplo.com" autocomplete="email" required autofocus>
+            <button class="recuperar-enviar" type="submit">Solicitar recuperação</button>
+            <p class="recuperar-status" role="status"></p>
+        </form>
+        <button class="recuperar-voltar" type="button" data-fechar-recuperacao>Voltar para o login</button>
+    </dialog>
+
     <!-- TELA DE LOGIN -->
     <div class="fundo-login" id="flex-login">
 
@@ -202,7 +218,7 @@
 
             <a class="Entrar-Button" href="#" id="btn-entrar">Entrar</a>
 
-            <a class="Senha-Esq" href="#">Esqueceu sua senha?</a>
+            <a class="Senha-Esq" href="#recuperar-senha" aria-haspopup="dialog">Esqueceu sua senha?</a>
 
             <div class="Nao-tem-uma-conta">
                 <p>
@@ -374,11 +390,15 @@
     
     </div>
 <!--
+Contas de teste do Hashi (e-mail / senha)
 Cliente: cliente@hashi.com / 123456
 Entregador: entregador@hashi.com / 123456
+Loja: loja@hashi.com / 123456
  -->
 
 
     <script src="../JavaScript/minha-conta.js"></script>
+    <script src="../JavaScript/cabecalho-conta.js"></script>
+    <script src="../JavaScript/carrinho.js"></script>
 </body>
 </html>
