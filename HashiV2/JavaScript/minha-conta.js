@@ -5,27 +5,23 @@ const cadastroOverlay = document.querySelector(".fundo-cadastro");
 const cadastro2Overlay = document.querySelector(".fundo-cadastro2");
 
 const abrirCadastro = document.getElementById("abrir-cadastro");
-const fecharCadastro = document.querySelector(".fechar-cadastro");
+const fecharCadastro = cadastroOverlay?.querySelector(".fechar-cadastro");
 const fecharCadastro2 = document.querySelector(".fechar-cadastro2");
-
 
 const voltarParaLogin = document.getElementById("voltar-login");
 const voltarParaLogin2 = document.getElementById("voltar-login2");
 
-
-
 const telaSelecao = document.getElementById("tela-selecao");
+const cadastroLoja = document.getElementById("cadastro-loja");
 
 if (telaSelecao) {
-    const cadastroLoja = document.getElementById("cadastro-loja");
     const cadastrosPorPerfil = {
         cliente: cadastroOverlay,
         entregador: cadastro2Overlay,
         loja: cadastroLoja
     };
 
-    telaSelecao.querySelector(".selecao-continuar").addEventListener("click", function () {
-        const perfil = telaSelecao.querySelector("input[name='perfil']:checked").value;
+    function abrirCadastroDoPerfil(perfil) {
         const cadastro = cadastrosPorPerfil[perfil];
 
         telaSelecao.close();
@@ -35,7 +31,17 @@ if (telaSelecao) {
             cadastro.style.display = "flex";
         }
         cadastro.querySelector("input").focus();
+    }
+
+    telaSelecao.querySelector(".selecao-continuar").addEventListener("click", function () {
+        const perfil = telaSelecao.querySelector("input[name='perfil']:checked").value;
+        abrirCadastroDoPerfil(perfil);
     });
+
+    if (window.location.hash === "#cadastro-entregador") {
+        telaSelecao.querySelector("input[value='entregador']").checked = true;
+        abrirCadastroDoPerfil("entregador");
+    }
 
     document.querySelectorAll("[data-voltar-selecao]").forEach(function (botao) {
         botao.addEventListener("click", function () {
@@ -57,9 +63,6 @@ if (telaSelecao) {
     });
 }
 
-
-// ABRIR / FECHAR MODAL DE LOGIN
-
 if (abrirLogin) {
     abrirLogin.addEventListener("click", function (event) {
         event.preventDefault();
@@ -77,9 +80,6 @@ if (loginOverlay) {
         }
     });
 }
-
-
-// RECUPERAÇÃO DE SENHA
 
 const dialogoRecuperacao = document.getElementById("recuperar-senha");
 
@@ -118,9 +118,6 @@ if (dialogoRecuperacao && loginOverlay) {
     });
 }
 
-
-// ABRIR CADASTRO (a partir do link "Cadastrar-se" no login)
-
 if (abrirCadastro) {
     abrirCadastro.addEventListener("click", function (event) {
         event.preventDefault();
@@ -133,9 +130,6 @@ if (abrirCadastro) {
         }
     });
 }
-
-
-// FECHAR TELAS DE CADASTRO (botão X e clique fora)
 
 if (fecharCadastro) {
     fecharCadastro.addEventListener("click", function () {
@@ -165,9 +159,6 @@ if (cadastro2Overlay) {
     });
 }
 
-
-// VOLTAR PARA O LOGIN (link "Já tem uma conta? Entrar")
-
 if (voltarParaLogin) {
     voltarParaLogin.addEventListener("click", function (event) {
         event.preventDefault();
@@ -183,10 +174,6 @@ if (voltarParaLogin2) {
         loginOverlay.style.display = "flex";
     });
 }
-
-
-// ALTERNAR ENTRE CADASTRO DE CLIENTE E DE ENTREGADOR
-
 
 function selecionarTipo(botaoClicado) {
     if (botaoClicado.classList.contains("entregador-button")) {
@@ -204,12 +191,9 @@ function selecionarTipo2(botaoClicado) {
     
 }
 
-
-// MOSTRAR / OCULTAR SENHA
-
-function alternarSenha() {
-    const campo = document.getElementById("campo-senha");
-    const icone = document.getElementById("icone-olho");
+function alternarSenha(sufixo = "") {
+    const campo = document.getElementById("campo-senha" + sufixo);
+    const icone = document.getElementById("icone-olho" + sufixo);
     if (campo.type === "password") {
         campo.type = "text";
         icone.innerHTML = '<path d="M3 3l18 18"/><path d="M10.6 10.6a3 3 0 004.24 4.24"/><path d="M6.7 6.7C4.3 8.2 2 12 2 12s3.5 7 10 7c1.7 0 3.2-.4 4.5-1.1"/><path d="M17.3 17.3C19.7 15.8 22 12 22 12s-1.2-2.4-3.3-4.3"/>';
@@ -220,21 +204,8 @@ function alternarSenha() {
 }
 
 function alternarSenha2() {
-    const campo = document.getElementById("campo-senha-2");
-    const icone = document.getElementById("icone-olho-2");
-    if (campo.type === "password") {
-        campo.type = "text";
-        icone.innerHTML = '<path d="M3 3l18 18"/><path d="M10.6 10.6a3 3 0 004.24 4.24"/><path d="M6.7 6.7C4.3 8.2 2 12 2 12s3.5 7 10 7c1.7 0 3.2-.4 4.5-1.1"/><path d="M17.3 17.3C19.7 15.8 22 12 22 12s-1.2-2.4-3.3-4.3"/>';
-    } else {
-        campo.type = "password";
-        icone.innerHTML = '<path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/>';
-    }
+    alternarSenha("-2");
 }
-
-
-// "BANCO DE DADOS" FALSO (localStorage)
-
-
 function pegarUsuarios() {
     return JSON.parse(localStorage.getItem("usuariosHashi")) || [];
 }
@@ -246,11 +217,6 @@ function salvarUsuarios(lista) {
 function emailJaExiste(email) {
     return pegarUsuarios().some(u => u.email.toLowerCase() === email.toLowerCase());
 }
-
-
-// CONTAS DE DEMONSTRAÇÃO
-// Login no prototipo: cliente@hashi.com, entregador@hashi.com ou loja@hashi.com.
-// Senha das tres contas de teste: 123456.
 
 function seedContasDemo() {
     const usuarios = pegarUsuarios();
@@ -294,9 +260,6 @@ function seedContasDemo() {
 
 seedContasDemo();
 
-
-// CADASTRO - CLIENTE
-
 const formCadastroCliente = document.querySelector(".fundo-cadastro .cadastro");
 const btnCadastrarCliente = formCadastroCliente ? formCadastroCliente.querySelector(".btn-cadastrar") : null;
 
@@ -337,9 +300,6 @@ if (btnCadastrarCliente) {
         loginOverlay.style.display = "flex";
     });
 }
-
-
-// CADASTRO - ENTREGADOR
 
 const formCadastroEntregador = document.querySelector(".fundo-cadastro2 .cadastro2");
 const btnCadastrarEntregador = formCadastroEntregador ? formCadastroEntregador.querySelector(".btn-cadastrar2") : null;
@@ -382,8 +342,45 @@ if (btnCadastrarEntregador) {
     });
 }
 
+const formularioLoja = document.getElementById("form-cadastro-loja");
 
-// LOGIN - verifica e redireciona conforme o tipo da conta
+formularioLoja?.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const dados = new FormData(formularioLoja);
+    const loja = {
+        tipo: "loja",
+        nome: dados.get("nome").trim(),
+        cnpj: dados.get("cnpj").trim(),
+        responsavel: dados.get("responsavel").trim(),
+        email: dados.get("email").trim(),
+        telefone: dados.get("telefone").trim(),
+        endereco: dados.get("endereco").trim(),
+        senha: dados.get("senha")
+    };
+
+    if (Object.values(loja).some(valor => !valor.trim())) {
+        alert("Preencha todos os campos antes de continuar.");
+        return;
+    }
+
+    if (emailJaExiste(loja.email)) {
+        alert("J\u00e1 existe uma conta cadastrada com esse e-mail.");
+        formularioLoja.elements.email.focus();
+        return;
+    }
+
+    const usuarios = pegarUsuarios();
+    usuarios.push(loja);
+    salvarUsuarios(usuarios);
+
+    formularioLoja.reset();
+    cadastroLoja.close();
+    loginOverlay.style.display = "flex";
+    document.getElementById("email").value = loja.email;
+    document.getElementById("senha").value = "";
+    document.getElementById("senha").focus();
+    alert("Loja cadastrada! Entre com seu e-mail e senha.");
+});
 
 const btnEntrar = document.getElementById("btn-entrar");
 
@@ -408,7 +405,6 @@ if (btnEntrar) {
             return;
         }
 
-        // guarda quem está logado, pra ser lido na página de painel
         const { nome, tipo } = usuario;
         localStorage.setItem("usuarioLogadoHashi", JSON.stringify({ nome, tipo, email: usuario.email }));
 

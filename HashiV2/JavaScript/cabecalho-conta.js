@@ -27,6 +27,7 @@ const sessaoHashi = lerSessaoHashi();
 const painelPerfil = document.body.dataset.painelPerfil;
 const vitrinePublica = document.body.dataset.vitrinePublica;
 const inicioPublico = document.body.hasAttribute("data-inicio-publico");
+const abrindoCadastroEntregador = inicioPublico && window.location.hash === "#cadastro-entregador";
 const gatilhoLoginHashi = document.getElementById("abrir-login");
 
 if (painelPerfil && sessaoHashi?.tipo !== painelPerfil) {
@@ -41,7 +42,7 @@ if (painelPerfil && sessaoHashi?.tipo !== painelPerfil) {
     destino.search = window.location.search;
     destino.hash = window.location.hash;
     window.location.replace(destino);
-} else if (inicioPublico && sessaoHashi) {
+} else if (inicioPublico && sessaoHashi && !abrindoCadastroEntregador) {
     let destino = destinoPerfilHashi(sessaoHashi.tipo);
     const fragmento = window.location.hash;
     if (fragmento === "#carrinho" || fragmento === "#atendimento") {

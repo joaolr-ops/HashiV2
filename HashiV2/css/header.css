@@ -3,11 +3,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 60px;
+    padding-inline: var(--margem-pagina);
 }
 .header-divider {
     height: 1.6px;
-    width: calc(100% - 120px);
+    width: calc(100% - 2 * var(--margem-pagina));
     margin: 0 auto;
     background-color: var(--hashi-vermelho);
     border-radius: 999px;
@@ -106,14 +106,6 @@ header {
 
 /* O mesmo cabeçalho se adapta nas páginas que usam esta folha. */
 @media (max-width: 1080px) {
-    header {
-        padding-inline: clamp(16px, 4vw, 44px);
-    }
-
-    .header-divider {
-        width: calc(100% - 2 * clamp(16px, 4vw, 44px));
-    }
-
     .nav-links {
         gap: clamp(16px, 4vw, 42px);
     }

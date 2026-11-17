@@ -350,12 +350,6 @@ body:has(.selecao[open]) {
 
 .cadastro-loja .btn-cadastrar {
     width: calc(100% - 2 * var(--margem-campos));
-    cursor: default;
-    opacity: .65;
-}
-
-.cadastro-loja .btn-cadastrar:disabled:hover {
-    background-color: rgb(138 138 138 / 20%);
 }
 
 #cadastro-cliente .cadastro,

@@ -157,7 +157,7 @@
                 <a href="./Html/cardapios.html">Cardápios</a>
                 <a href="./Html/promocoes.html">Promoções</a>
                 <a href="#">Ajuda</a>
-                <a href="#">Seja um entregador</a>
+                <a href="Html/entregador.html#cadastro-entregador">Seja um entregador</a>
             </div>
 
             <div class="footer-links" id="atendimento">
@@ -386,46 +386,48 @@
         <h2 id="titulo-cadastro-loja">Cadastro de loja</h2>
         <button class="trocar-perfil" type="button" data-voltar-selecao>Trocar tipo de conta</button>
 
-        <div class="Caixa">
-            <span class="indicator"></span>
-            <label for="loja-nome">Nome da loja</label>
-            <input id="loja-nome" type="text" autocomplete="organization" placeholder="Nome do restaurante">
-        </div>
-        <div class="Caixa">
-            <span class="indicator"></span>
-            <label for="loja-cnpj">CNPJ</label>
-            <input id="loja-cnpj" type="text" inputmode="numeric" placeholder="00.000.000/0000-00">
-        </div>
-        <div class="Caixa">
-            <span class="indicator"></span>
-            <label for="loja-responsavel">Nome do responsável</label>
-            <input id="loja-responsavel" type="text" autocomplete="name" placeholder="Nome completo">
-        </div>
-        <div class="Caixa">
-            <span class="indicator"></span>
-            <label for="loja-email">E-mail comercial</label>
-            <input id="loja-email" type="email" autocomplete="email" placeholder="contato@restaurante.com.br">
-        </div>
-        <div class="Caixa">
-            <span class="indicator"></span>
-            <label for="loja-telefone">Telefone comercial</label>
-            <input id="loja-telefone" type="tel" autocomplete="tel" placeholder="(00) 00000-0000">
-        </div>
-        <div class="Caixa">
-            <span class="indicator"></span>
-            <label for="loja-endereco">Endereço da loja</label>
-            <input id="loja-endereco" type="text" autocomplete="street-address" placeholder="Rua, número, bairro e cidade">
-        </div>
-        <div class="Caixa">
-            <span class="indicator"></span>
-            <label for="loja-senha">Senha</label>
-            <input id="loja-senha" type="password" autocomplete="new-password" placeholder="Crie uma senha">
-        </div>
-        <label class="termos">
-            <input type="checkbox">
-            Li e concordo com os Termos de Uso
-        </label>
-        <button class="btn-cadastrar" type="button" disabled>Cadastrar loja</button>
+        <form id="form-cadastro-loja">
+            <div class="Caixa">
+                <span class="indicator"></span>
+                <label for="loja-nome">Nome da loja</label>
+                <input id="loja-nome" name="nome" required type="text" autocomplete="organization" placeholder="Nome do restaurante">
+            </div>
+            <div class="Caixa">
+                <span class="indicator"></span>
+                <label for="loja-cnpj">CNPJ</label>
+                <input id="loja-cnpj" name="cnpj" required type="text" inputmode="numeric" placeholder="00.000.000/0000-00">
+            </div>
+            <div class="Caixa">
+                <span class="indicator"></span>
+                <label for="loja-responsavel">Nome do responsável</label>
+                <input id="loja-responsavel" name="responsavel" required type="text" autocomplete="name" placeholder="Nome completo">
+            </div>
+            <div class="Caixa">
+                <span class="indicator"></span>
+                <label for="loja-email">E-mail comercial</label>
+                <input id="loja-email" name="email" required type="email" autocomplete="email" placeholder="contato@restaurante.com.br">
+            </div>
+            <div class="Caixa">
+                <span class="indicator"></span>
+                <label for="loja-telefone">Telefone comercial</label>
+                <input id="loja-telefone" name="telefone" required type="tel" autocomplete="tel" placeholder="(00) 00000-0000">
+            </div>
+            <div class="Caixa">
+                <span class="indicator"></span>
+                <label for="loja-endereco">Endereço da loja</label>
+                <input id="loja-endereco" name="endereco" required type="text" autocomplete="street-address" placeholder="Rua, número, bairro e cidade">
+            </div>
+            <div class="Caixa">
+                <span class="indicator"></span>
+                <label for="loja-senha">Senha</label>
+                <input id="loja-senha" name="senha" required type="password" autocomplete="new-password" placeholder="Crie uma senha">
+            </div>
+            <label class="termos">
+                <input type="checkbox" required>
+                Li e concordo com os Termos de Uso
+            </label>
+            <button class="btn-cadastrar" type="submit">Cadastrar loja</button>
+        </form>
     </dialog>
 
     <!-- TELA DE CADASTRO 2 -->

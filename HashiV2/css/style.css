@@ -1,4 +1,5 @@
 :root {
+    --margem-pagina: 60px;
     --hashi-fundo: #0b0b0b;
     --hashi-superficie: #161616;
     --hashi-superficie-elevada: #232323;
@@ -19,6 +20,12 @@
     --hashi-vermelho-escuro: color-mix(in srgb, var(--hashi-vermelho) 56%, var(--hashi-fundo));
     --hashi-foco: var(--hashi-texto-suave);
     --hashi-aviso: color-mix(in srgb, var(--hashi-vermelho) 30%, var(--hashi-texto));
+}
+
+@media (max-width: 1080px) {
+    :root {
+        --margem-pagina: clamp(16px, 4vw, 44px);
+    }
 }
 
 * {
@@ -58,13 +65,13 @@ body::before {
     align-items: center;
     justify-content: space-between;
     gap: 40px;
-    padding: 45px 0 56px 60px;
+    padding: 45px var(--margem-pagina) 56px;
     flex-wrap: wrap;
 }
 
 .hero-text {
     flex: 1;
-    min-width: 420px;
+    min-width: min(420px, 100%);
     max-width: 600px;
     display: flex;
     flex-direction: column;
@@ -88,7 +95,7 @@ body::before {
 }
 
 h1 {
-    font-size: 52px;
+    font-size: clamp(32px, 5vw, 52px);
     font-family: "Montserrat", sans-serif;
     line-height: 1.15;
     font-weight: 700;
@@ -106,6 +113,7 @@ h1 .highlight {
 
 .hero-buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 16px;
     margin-top: 8px;
 }
@@ -149,15 +157,14 @@ h1 .highlight {
 
 .hero-image {
     flex: 1.15;
-    min-width: 380px;
+    min-width: min(380px, 100%);
     align-self: center;
     display: flex;
     justify-content: flex-end;
-    overflow: hidden;
 }
 
 .prato-sushi {
-    width: 820px;
+    width: min(100%, 820px);
     height: auto;
 }
 
@@ -168,7 +175,7 @@ h1 .highlight {
     align-items: stretch;
     justify-content: space-between;
     gap: 40px;
-    padding: 20px 60px 60px;
+    padding: 20px var(--margem-pagina) 60px;
     flex-wrap: wrap;
 }
 
@@ -176,8 +183,9 @@ h1 .highlight {
     display: flex;
     gap: 24px;
     flex: 1.6;
-    min-width: 320px;
-    margin-right: 220px;
+    min-width: min(100%, 588px);
+    margin-right: clamp(0px, calc(30vw - 350px), 220px);
+    flex-wrap: wrap;
 }
 
 .feature-card-minus {
@@ -241,7 +249,7 @@ h1 .highlight {
 .feature-card-wide {
     flex: 1;
     max-width: 460px;
-    min-width: 300px;
+    min-width: min(300px, 100%);
     border-color: var(--hashi-contorno-vermelho);
     background-color: var(--hashi-superficie-quente);
     position: relative;
@@ -273,7 +281,7 @@ h1 .highlight {
 }
 
 .chevron {
-    margin-left: 130px;
+    margin-left: auto;
     font-size: 20px;
 }
 
